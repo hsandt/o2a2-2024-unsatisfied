@@ -29,7 +29,43 @@ define config.version = "1.0"
 ## Text that is placed on the game's about screen. Place the text between the
 ## triple-quotes, and leave a blank line between paragraphs.
 
-define gui.about = _p("""
+define gui.about = _p("""This game was made for the {a=https://itch.io/jam/o2a2-2024}O2A2 VN Jam 2024{/a}, a micro Visual Novel jam with strict asset limitations and a 1000 word limit.
+
+It is distributed exclusively on itch.io:
+
+- {a=https://komehara.itch.io/unsatisfied}game page{/a}
+
+- {a=TODO}jam entry page{/a} (link TODO)
+
+A junior high school student got a pretty good grade, but he doesn’t like it. It happened before and so far, the teachers ignored him, but the new teacher starts a discussion to try to understand what’s wrong and searches the right words to put his mind to peace.
+
+This game was made for the {a=https://itch.io/jam/o2a2-2024}O2A2 VN Jam 2024{/a}, a micro Visual Novel jam with strict asset limitations and a 1000 word limit. See the {a=TODO}jam entry page{/a} (link TODO).
+
+{b}Development status{/b}
+
+{b}Game is currently in active development for the O2A2 VN Jam 2024{/b}
+
+Changelog
+
+{b}v1.0.0 - 2024-07-??**
+
+- Initial release (Ren'Py 8.2.3)
+
+{b}Credits{/b}
+
+- {a=https://komehara.itch.io/}komehara{/a} - Writing, Programming, Management
+
+- reiwa - Art
+- Acrid - Music
+- Proofreading & Feedback: zani, The Sloth
+
+{b}License{/b}
+
+Unless otherwise stated, all assets are under copyright of their respective authors.
+
+Fonts
+
+- ...
 """)
 
 
