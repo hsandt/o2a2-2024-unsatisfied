@@ -145,13 +145,31 @@ label private_grades:
 
     ## %% They talk about working hard to survive vs chill work in a room, battlefield vs playground, education and tests vs actual work to produce something: 150 %%
     ### %% T: Why this elitism? %%
-    # - B: I dunnow
-    # - T: would by chance father Vietnamese? I had similar experience and understand the need to succeed, your parents are well integrated and have money, so no need anymore for your generation
-    # - B: but then I’m not up to the task and I don’t deserve that wealth
-    # - B: since no physical hard work, desk work and studies replace it. Like service employees in companies.
-    # - B: It is our battlefield. A way to prove they'd been as good and hardworking as other people on the field.
-    # - T: see it like a playground. The pupils are well-surrounded so they should see this as a training, esp. before more serious exams.
-    # - The pupil considers.
+label elitism:
+
+    t "Why do you think you need to be that much successful everywhere?"
+
+    b "Not everywhere. Where I already know I'm not totally bad."
+
+    t "Are your parents pushing that far?"
+
+    b "No, I just don't like failing. Although my father appreciates it when I get good grades."
+
+    t "I'm guessing from your name that he comes from Viêtnam?"
+
+    b "Yes, why?"
+
+    t "As a migrant, he may make a point of ensuring you are successful in academics in order to be both well integrated in society and make a lot of money. I am one myself so I know that feeling."
+
+    t "But your generation lives in peace and is already well integrated. You don't need to strain yourself like this."
+
+    b "…"
+
+    b "But I want to deserve my parents' wealth. If I don't work in an office, studying is the second best thing I can do."
+
+    t "I see. But in offices, employees have no grades, their overall performance and teamwork matters more."
+
+    # TODO: combine with similar professional talk above
     ## %% They talk about self-satisfaction and using true skills to actually produce something in life and how finding this extra-curricular activity until having an actual job matters: 80 %%
     ### %% T: what do you wanna do in life? %%
     #### %% B: (nice if player choice, but then player controls everyone) %%
