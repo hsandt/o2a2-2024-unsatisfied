@@ -21,35 +21,33 @@ label scene1:
 
     t "Đạt, 17."
 
-    "I don't know this one, he wasn't in my class last year. 17 out of 20 is very good, but the pupil doesn't show the hint of a smile. Either it's his usual grade, or he {i}is{/i} the king of poker faces."
+    "I don't know this one, he wasn't in my class last year. 17 out of 20 is excellent, but the pupil doesn't show the hint of a smile. Either it's his usual grade, or he {i}is{/i} the king of poker faces."
 
     t "Jordan, 19."
 
-    "Jordan, with his usual enjoyed gait, comes to receive his trophy. As he comes back to his seat, his friends are tapping him on the back."
+    "Jordan, with his usual joyful gait, comes to receive his trophy. He walks back to his seat under the congratulations—in teen slang—of his comrades."
 
     "I finish giving the papers back and address the class:"
 
-    t "That's it, I'll give you some time to check your answers once more. Tell me if you have any questions."
+    t "That's it. I'll give you some time to check your answers once more. Tell me if you have any questions."
 
     ### %% we hear boy crumpling paper %%
     # SFX: crumpling paper
-    "I hear some paper being crumpled."
+    "I sort my notes to prepare the incoming lesson, when the sound of crumbled paper catches my attention."
 
-    "I look around and see Đạt clutching his essay, firmly wrapped into a paper ball."
+    "I see Đạt clutching a paper ball, even more serious than before."
 
-    "He's staring at the bin standing in a corner of the classroom, but instead of throwing the ball, he unwraps it and tries to flatten it down on his desk – maybe to check his answers once more, as instructed."
-
-    "But he doesn't have much to correct, so he just stays there glaring at his essay."
+    "I expect him to throw the ball into the bin, but instead, he unwraps it and flattens it down on his desk—revealing his wrinkled essay."
 
     ### %% Scene shows boy’s desktop and half-crumpled paper %%
     # Scene: show boy's desktop + half-crumpled paper + boy's bust
     ## %% Other pupils around murmur and complain about his behaviour, but the boy ignores them: 40 %%
-    "Some of the other students glance at him, but quickly feel uncomfortable and look away."
-
-    "I suppose most of them have lower grades and don't appreciate seeing a peer complaining while faring better."
+    "Some students whisper to their neighbours while peeking at him."
 
     ## %% New teacher approaches boy who can do nothing but be annoyed, and starts discussing: 30 %%
-    "I'd better have a look to find out what's wrong. I walk to his desk."
+    "I'd better have a look to find out what's wrong."
+
+    "I walk to his desk."
 
     ## %% They talk about the optimistic and pessimistic view on grades: 80 %%
     ### %% Teacher says A- (or some equivalent like 17/20) is a very good grade %%
@@ -57,7 +55,7 @@ label scene1:
 
         "How should I start the conversation?"
 
-        "Compliment him on his writing":
+        "Pretend not to have seen anything and compliment him on his writing":
 
             jump .good_job
 
@@ -92,20 +90,20 @@ label .flip_pages:
     ### %% Pupil says then why the minus / that 17 is 3 points away from 20. Three stupid mistakes. Being the first in the class would make it acceptable, but it's not even the case. %%
     "The boy frowns."
 
-    b "It's not just the dates, I also got the events wrong, and it was obvious from a logical standpoint."
+    b "It's not just the dates, I also got the events wrong. It was obvious."
 
     t "Maybe, but the rest was correct, enough to be worth 17 points in my grading."
 
-    b "To me, it's just 3 points missing. And I could have avoided that, the other pupils prove it."
+    b "To me, it's just 3 points missing. And I could have avoided that. The other pupils prove it."
 
     # => unlock rivalry talk
     ## %% They talk about alternative ways to score and deliver score to pupils (self-correction, no grade, no public grade announcement…): 120 %%
     ### %% Maybe ABC would be better than numeric score? %%
 label alternative_grading:
 
-    t "Maybe the 20-point grading system makes you feel that way because it's so precise? What if I was using some A-B-C-D grading?"
+    t "Maybe the 20-point grading system makes you feel that way because it's so precise? What if I were using some A-B-C-D grading?"
 
-    b "… well it'd probably feel like covering my mistakes, but at least I'd have the satisfaction of being top-ranked, even with a few mistakes – assuming I get A. Wouldn't 17 be more like a B though?"
+    b "… Well, it'd probably feel like covering my mistakes, but at least I'd have the satisfaction of being top-ranked, even with a few mistakes—assuming I get A. Wouldn't 17 be more like a B though?"
 
     t "Hm… I suppose so. But more likely a B+!"
 
@@ -114,21 +112,21 @@ label alternative_grading:
     ### %% They talk about how the broad skill matters more than the details. After all, this is how it looks like in a pro environment, where there are no grades %%
     t "Anyway, my point is, you have to focus on the big picture: the test ensures that you have a broad understanding of the topic."
 
-    t "Then, if you couldn't answer some questions, that's something you can dig deeper."
+    t "Then, if you couldn't answer some questions, that's something you can dig deeper into."
 
     b "But I already see what was wrong, and I have nothing more to learn."
 
-    t "Then that's great too. Most students here don't understand what is missing, and have difficulties fixing their shortcomings. Being able to understand one's mistakes quickly is a quality."
+    t "Then that's great too. Most students here don't understand what is missing, and have difficulties fixing their shortcomings. Being able to understand one's mistakes quickly is a strength."
 
     b "…"
 
-    t "And sometimes, even then, it's worth digging deeper: the test, after all, can be succeeded by tackling the surface of each topic, but real history is much deeper."
+    t "And sometimes, even then, it's worth digging deeper: the test, after all, can be passed by tackling the surface of each topic, but real history is much deeper."
 
-    t "The more you understand a topic in depth, the less you're likely to make small mistakes."
+    t "The more you understand a topic in depth, the less likely you're to make small mistakes."
 
     t "This is what professionals and experts do: they study beyond what's asked from them."
 
-    t "Academics don't undergo tests like these, instead they focus on researching further, writing papers or delivering talks."
+    t "Academics don't undergo tests like these. Instead, they focus on researching further, writing papers or delivering talks."
 
     t "And office employees don't have grades either, only their overall performance matters."
 
@@ -197,6 +195,9 @@ label elitism:
     #### %% T: hm… maybe other pupils think the same of you. we don’t know if rival doesn’t also do extra work %%
     #### %% B: hmpf, they don’t look pressured or anything. Plus some rival always parties. %%
     #### %% T: nor do you, always talking about games. It may not be visible to the eyes. Maybe they party precisely to evacuate that stress %%
+    ### %% They talk about showing satisfaction %%
+    #### %% Why no smile? %%
+    #### %% That would be boasting. Or worse, if something else got a better grade right after me, I'll look stupid. %%
     ## %% The conversation ends, the teacher understanding better and pupil considering the teacher’s words: 50 %%
     ## %% Epilogue: 50 %%
     ### %% the boy is now is high school working on some personal project (what they said they liked answering T question) %%
