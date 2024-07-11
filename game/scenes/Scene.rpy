@@ -17,11 +17,11 @@ label scene1:
 
     t "Ismail, 16."
 
-    "The procession continues for a minute."
+    "The procession continues for half a minute."
 
     t "Đạt, 17."
 
-    "I don't know this one, he wasn't in my class last year. 17 out of 20 is excellent, but the pupil doesn't show the hint of a smile. Either it's his usual grade, or he {i}is{/i} the king of poker faces."
+    "17 out of 20 is an excellent grade, but instead of a smile, the pupil lets out a sigh."
 
     t "Jordan, 19."
 
@@ -37,6 +37,7 @@ label scene1:
 
     "I see Đạt clutching a paper ball, even more serious than before."
 
+    # SFX: crumpling paper
     "I expect him to throw the ball into the bin, but instead, he unwraps it and flattens it down on his desk—revealing his wrinkled essay."
 
     ### %% Scene shows boy’s desktop and half-crumpled paper %%
@@ -170,36 +171,121 @@ label elitism:
     # TODO: combine with similar professional talk above
     ## %% They talk about self-satisfaction and using true skills to actually produce something in life and how finding this extra-curricular activity until having an actual job matters: 80 %%
     ### %% T: what do you wanna do in life? %%
-    #### %% B: (nice if player choice, but then player controls everyone) %%
-        #### %% video making %%
+label why_study:
 
-        #### %% website %%
+    t "Why are you studying?"
 
-        #### %% model %%
+    "Đạt raises an eyebrow."
 
-        #### %% dance choreography %%
+    b "Well, that's what school is for. We study so we become better, we can pass exams and prove that we're worth it and go on in life."
+
+    t "No, I mean, what do you want to do in life with everything you would have learned here?"
+
+    "The boy ponders."
+
+    b "No clue. I suppose I could get a job in human sciences or something, but I'm not interested in research that much."
+
+    t "Then that's one thing you can think about that may considerably shift your values."
+
+    t "If you do end up in human sciences, that knowledge will be much more important to you that it will be for another student, even if they had a better grade."
+
+    b "Isn't that precisely a good reason to be the best?"
+
+    t "Maybe. But more importantly, you'll practice every day and so your 17 will be a solid 17. While you can get a 19 by revising a lot before the test, and forget it later."
+
+    "Đạt glanced at Jordan."
+
+    b "Hm. I don't think you can score that much just with last time revisions, but I get your point."
+
+    t "Even without becoming a professional, this knowledge is worth what it is. Maybe you can talk with your parents about Southeast Asia's decolonisation."
+
+    b "I see…"
 
     ## %% They talk about rivalry and other classmates doing better, or worse, and their own circumstances, serious training and pressure: 120 %%
-    ### %% Teacher choice: Not everyone can get grades that good, you should consider yourself lucky. It annoys other pupils that you're so unsatisfied. %%
-    ### %% B: and so what? It's not like they care that much. They have been used to mediocrity for a long time. Plus it's not like they work as seriously as I do. It's normal I have more expectations. %%
-    ### %% Teacher choice: Is it because other pupils did better? %%
-    ### %% Boy: yes, but it’s more that they proved that it was possible for a human to do so, raising the ceiling %%
+label lucky:
+
+    t "You know, not everyone can get grades that good, you should consider yourself lucky."
+
+    b "Maybe I'm lucky to have potential, but I still need to work. Besides, people who don't get good grades get used to mediocrity and stop caring."
+
+    b "People who do must raise the bar and are just as likely to miss it. I don't see how that makes me luckier."
+
     ### %% T: every human has circumstances %%
-    #### %% B: but no particular handicap or difficulty, or difficult context at home %%
+    t "Every human has circumstances, some may fare better or worse depending on their context and mental state."
+
+    b "But I didn't have particular issues for this exam, nor in general in life. So I have no excuses."
+
     ### %% T: and training %%
-    #### %% B: I do all the exercices %%
-    #### %% T: and more? %%
-    #### %% B: no, never more %%
-    #### %% T: try it %%
-    #### %% B: oh… but what if my rival doesn’t, then I must work harder than them that’s unfair %%
-    #### %% T: hm… maybe other pupils think the same of you. we don’t know if rival doesn’t also do extra work %%
-    #### %% B: hmpf, they don’t look pressured or anything. Plus some rival always parties. %%
-    #### %% T: nor do you, always talking about games. It may not be visible to the eyes. Maybe they party precisely to evacuate that stress %%
+    t "Maybe Jordan just trained a lot."
+
+    b "I also do! I do all the homework."
+
+    t "Maybe you can do more?"
+
+    b "I suppose so… but if Jordan can get 19 without extra work, why should I? Sounds unfair to me."
+
+    "I look around the classroom."
+
+    t "Maybe that's also what other pupils think about you."
+
+    b "Oh, the sandwich effect."
+
+    pause 0.5
+
+    t "The… sandwich?"
+
+    b "Yes, when you rank second, you're annoyed because you couldn't beat the first. {b}And{/b} the third one and everyone else below complain about you because you beat them but still complain."
+
+    b "So you get sandwiched between them and take double penalty."
+
+    t "Right, I understand…"
+
+    t "Anyway, nothing says that Jordan is not putting extra work anywhere. If not in history, it could be in mathematics or sports."
+
+    t "So there's no shame in doing some extra, especially on something that matters to you."
+
+    b "Fine, I will consider."
+
+    b "In the meantime, Jordan doesn't pressured or anything. He always goes to parties."
+
+    t "You don't seem stressed outside exam results either, casually talking to your friends."
+
+    t "Maybe he parties precisely to evacuate that stress?"
+
     ### %% They talk about showing satisfaction %%
+label facial_expression:
+
+    t "I noticed you didn't smile but let out a sigh. Was it out of spite?"
+
+    b "No, out of relief. I was worried I might have messed up this test."
+
+    t "Then why the sudden change of mind?"
+
+    b "Because Jordan did better."
+
     #### %% Why no smile? %%
-    #### %% That would be boasting. Or worse, if something else got a better grade right after me, I'll look stupid. %%
+    t "You can be proud of yourself and smile about your success."
+
+    b "No, that would be boasting. Or worse, if something else got a better grade right after me, I'll look stupid. Which happened, so I'm glad I didn't smile."
+
     ## %% The conversation ends, the teacher understanding better and pupil considering the teacher’s words: 50 %%
+    t "So, you think you can be satisfied with what you did?"
+
+    b "I don't know. At least I know what I did wrong. For the rest, I can't guarantee."
+
+    pause 1.0
+
     ## %% Epilogue: 50 %%
     ### %% the boy is now is high school working on some personal project (what they said they liked answering T question) %%
-    ### %% B is happy to be part of a complementary team and using unique skills %%
-    ### %% B is happy to deliver a product only whose subjective quality (but assessed by an audience of young people like him) matters %%
+    "Epilogue - 7 years later"
+
+    "In my living room, at the end of the documentary, I recognise a name in the credits."
+
+    "I check on LinkedIn that it's not a homonym, but it is him."
+
+    "It looks like Đạt is investigating cross-continental migrations and tracing the stories of families who left it all in search of a better life, without war nor totalitarianism."
+
+    "He's probably happier now, without grades and just the satisfaction of making something meaningful for the society."
+
+    "Oh, the film is scored 85\% on Rotten Tomatoes."
+
