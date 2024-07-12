@@ -2,10 +2,11 @@
 # !! DO NOT MODIFY MANUALLY EXCEPT FOR VERY QUICK TESTING,
 # !! AS ANY CHANGES WILL BE OVERWRITTEN ON NEXT CONVERSION FROM MARKDOWN SOURCES
 
-## %% Teacher distributes paper: 120 %%
+## %% Teacher distributes paper: 100 %%
 label scene1:
 
-    # show white BG
+    scene bg white
+
     t "Thomas, 15."
 
     "The boy stands up and comes to my desk to receive his corrected paper, seemingly satisfied."
@@ -30,7 +31,9 @@ label scene1:
 
     t "That's it. I'll give you some time to check your answers once more. Tell me if you have any questions."
 
-    ### %% we hear boy crumpling paper %%
+    ## %% Boy crumples paper: 20 %%
+label .boy_crumples_paper:
+
     # SFX: crumpling paper
     "I sort my notes to prepare the incoming lesson, when the sound of crumbled paper catches my attention."
 
@@ -42,16 +45,15 @@ label scene1:
     # Scene: show boy's desktop + half-crumpled paper + boy's bust
     scene bg classroom
 
-    ## %% Other pupils around murmur and complain about his behaviour, but the boy ignores them: 40 %%
     "Some students whisper to their neighbours while peeking at him."
 
-    ## %% New teacher approaches boy who can do nothing but be annoyed, and starts discussing: 30 %%
     "I'd better have a look to find out what's wrong."
 
     "I walk to his desk."
 
-    ## %% They talk about the optimistic and pessimistic view on grades: 80 %%
-    ### %% Teacher says A- (or some equivalent like 17/20) is a very good grade %%
+    ## %% Teacher starts talking: 50 %%
+label .dialogue_start:
+
     menu:
 
         "How should I start the conversation?"
@@ -64,6 +66,7 @@ label scene1:
 
             jump .why_crumple
 
+    ## %% They talk about the optimistic and pessimistic view on grades: 80 %%
 label .good_job:
 
     t "Good job! The part on the Third World's non-alignment with the United States and the USSR was well constructed."
@@ -88,7 +91,6 @@ label .flip_pages:
 
     t "Yes, the dates were not really accurate, but what matters is that you got the big picture."
 
-    ### %% Pupil says then why the minus / that 17 is 3 points away from 20. Three stupid mistakes. Being the first in the class would make it acceptable, but it's not even the case. %%
     "The boy frowns."
 
     b "It's not just the dates, I also got the events wrong. It was obvious."
@@ -97,10 +99,47 @@ label .flip_pages:
 
     b "To me, it's just 3 points missing. And I could have avoided that. The other pupils prove it."
 
-    # => unlock rivalry talk
-    ## %% They talk about alternative ways to score and deliver score to pupils (self-correction, no grade, no public grade announcement…): 120 %%
-    ### %% Maybe ABC would be better than numeric score? %%
-label alternative_grading:
+    ## %% Teacher can choose next topic freely: 50 %%
+label .dialogue_hub:
+
+    while not (talked_about_alternative_grading and talked_about_private_grades and talked_about_elitism and talked_about_why_study and talked_about_other_classmates_worse and talked_about_other_classmates_better and talked_about_facial_expression):
+
+        menu:
+
+            "Maybe we should give global ranks instead of points?" if not talked_about_alternative_grading:
+
+                call .alternative_grading
+
+            "Maybe we shouldn't announce grade publicly?" if not talked_about_private_grades:
+
+                call .private_grades
+
+            "Why do you need to be that successful?" if not talked_about_elitism:
+
+                call .elitism
+
+            "Why do you study?" if not talked_about_why_study:
+
+                call .why_study
+
+            "Some pupils do worse." if not talked_about_other_classmates_worse:
+
+                call .other_classmates_worse
+
+            "Some pupils do better." if not talked_about_other_classmates_better:
+
+                call .other_classmates_better
+
+            "Why don't you smile?" if not talked_about_facial_expression:
+
+                call .facial_expression
+
+    jump .dialogue_end
+
+    ## %% They talk about alternative grading: 120 %%
+label .alternative_grading:
+
+    $ talked_about_alternative_grading = True
 
     t "Maybe the 20-point grading system makes you feel that way because it's so precise? What if I were using some A-B-C-D grading?"
 
@@ -110,7 +149,6 @@ label alternative_grading:
 
     b "…"
 
-    ### %% They talk about how the broad skill matters more than the details. After all, this is how it looks like in a pro environment, where there are no grades %%
     t "Anyway, my point is, you have to focus on the big picture: the test ensures that you have a broad understanding of the topic."
 
     t "Then, if you couldn't answer some questions, that's something you can dig deeper into."
@@ -133,8 +171,12 @@ label alternative_grading:
 
     b "Hm. Sounds nice."
 
-    ### %% T: maybe not announce grades publicly? %%
-label private_grades:
+    return
+
+    ### %% They talk about private grades: 40 %%
+label .private_grades:
+
+    $ talked_about_private_grades = True
 
     t "What about not announcing grades publicly, so you don't compare yourself to others?"
 
@@ -142,9 +184,12 @@ label private_grades:
 
     t "You're hard on yourself!"
 
-    ## %% They talk about working hard to survive vs chill work in a room, battlefield vs playground, education and tests vs actual work to produce something: 150 %%
-    ### %% T: Why this elitism? %%
-label elitism:
+    return
+
+    ## %% They talk about working hard to survive vs studying: 150 %%
+label .elitism:
+
+    $ talked_about_elitism = True
 
     t "Why do you think you need to be that much successful everywhere?"
 
@@ -154,7 +199,7 @@ label elitism:
 
     b "No, I just don't like failing. Although my father appreciates it when I get good grades."
 
-    t "I'm guessing from your name that he comes from Viêtnam?"
+    t "I'm guessing from your name that he comes from Vietnam?"
 
     b "Yes, why?"
 
@@ -169,9 +214,12 @@ label elitism:
     t "I see. But in offices, employees have no grades, their overall performance and teamwork matters more."
 
     # TODO: combine with similar professional talk above
-    ## %% They talk about self-satisfaction and using true skills to actually produce something in life and how finding this extra-curricular activity until having an actual job matters: 80 %%
-    ### %% T: what do you wanna do in life? %%
-label why_study:
+    return
+
+    ## %% They talk about the real value of knowledge skills, applied outside school: 100 %%
+label .why_study:
+
+    $ talked_about_why_study = True
 
     t "Why are you studying?"
 
@@ -201,8 +249,12 @@ label why_study:
 
     b "I see…"
 
-    ## %% They talk about rivalry and other classmates doing better, or worse, and their own circumstances, serious training and pressure: 120 %%
-label lucky:
+    return
+
+    ## %% They talk about other classmates doing worse, and their own circumstances: 60 %%
+label .other_classmates_worse:
+
+    $ talked_about_other_classmates_worse = True
 
     t "You know, not everyone can get grades that good, you should consider yourself lucky."
 
@@ -210,12 +262,17 @@ label lucky:
 
     b "People who do must raise the bar and are just as likely to miss it. I don't see how that makes me luckier."
 
-    ### %% T: every human has circumstances %%
+    return
+
+    ## %% They talk about other classmates doing better, and their own circumstances: 180 %%
+label .other_classmates_better:
+
+    $ talked_about_other_classmates_better = True
+
     t "Every human has circumstances, some may fare better or worse depending on their context and mental state."
 
     b "But I didn't have particular issues for this exam, nor in general in life. So I have no excuses."
 
-    ### %% T: and training %%
     t "Maybe Jordan just trained a lot."
 
     b "I also do! I do all the homework."
@@ -252,8 +309,12 @@ label lucky:
 
     t "Maybe he parties precisely to evacuate that stress?"
 
-    ### %% They talk about showing satisfaction %%
-label facial_expression:
+    return
+
+    ### %% They talk about showing satisfaction: 50 %%
+label .facial_expression:
+
+    $ talked_about_facial_expression = True
 
     t "I noticed you didn't smile but let out a sigh. Was it out of spite?"
 
@@ -263,12 +324,15 @@ label facial_expression:
 
     b "Because Jordan did better."
 
-    #### %% Why no smile? %%
     t "You can be proud of yourself and smile about your success."
 
     b "No, that would be boasting. Or worse, if something else got a better grade right after me, I'll look stupid. Which happened, so I'm glad I didn't smile."
 
+    return
+
     ## %% The conversation ends, the teacher understanding better and pupil considering the teacher’s words: 50 %%
+label .dialogue_end:
+
     t "So, you think you can be satisfied with what you did?"
 
     b "I don't know. At least I know what I did wrong. For the rest, I can't guarantee."
@@ -276,7 +340,8 @@ label facial_expression:
     pause 1.0
 
     ## %% Epilogue: 50 %%
-    ### %% the boy is now is high school working on some personal project (what they said they liked answering T question) %%
+label .epilogue:
+
     "Epilogue - 7 years later"
 
     "In my living room, at the end of the documentary, I recognise a name in the credits."
