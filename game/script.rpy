@@ -20,14 +20,27 @@ define b = Character("Đạt")
 
 # Story event flags
 
-# A1S1
 default talked_about_alternative_grading = False
-default talked_about_private_grades = False
-default talked_about_elitism = False
-default talked_about_why_study = False
-default talked_about_other_classmates_worse = False
 default talked_about_other_classmates_better = False
-default talked_about_facial_expression = False
+
+default unlocked_talked_about_circumstances = False
+default talked_about_circumstances = False
+
+default talked_about_other_classmates_worse = False
+
+default unlocked_private_grades = False
+default talked_about_private_grades = False
+
+default unlocked_elitism = False
+default talked_about_elitism = False
+
+default unlocked_why_study = False
+default talked_about_why_study = False
+
+default unlocked_dialogue_end = False
+
+# unused
+# default talked_about_facial_expression = False
 
 
 # The game starts here.

@@ -45,13 +45,13 @@ label boy_crumples_paper:
     # Scene: show boy's desktop + half-crumpled paper + boy's bust
     scene bg classroom
 
-    "Some students whisper to their neighbours while peeking at him."
+    "Some teenagers whisper to their neighbours while peeking at him."
 
     "I'd better have a look to find out what's wrong."
 
     "I walk to his desk."
 
-    ## %% Teacher starts talking: 50 %%
+    ## %% Teacher starts talking about the optimistic and pessimistic view on grades: 150 %%
 label dialogue_start:
 
     menu:
@@ -66,7 +66,6 @@ label dialogue_start:
 
             jump why_crumple
 
-    ## %% They talk about the optimistic and pessimistic view on grades: 80 %%
 label good_job:
 
     t "Good job! The part on the Third World's non-alignment with the United States and the USSR was well constructed."
@@ -99,55 +98,65 @@ label flip_pages:
 
     b "To me, it's just 3 points missing. And I could have avoided that. The other pupils prove it."
 
-    ## %% Teacher can choose next topic freely: 50 %%
+    ## %% HUB: Teacher can choose next topic freely: 50 %%
 label dialogue_hub:
 
-    while not (talked_about_alternative_grading and talked_about_private_grades and talked_about_elitism and talked_about_why_study and talked_about_other_classmates_worse and talked_about_other_classmates_better and talked_about_facial_expression):
+label question_grading:
+
+    while True:
 
         menu:
 
-            "Maybe we should give global ranks instead of points?" if not talked_about_alternative_grading:
+            "So the precise scoring is what bothers you?" if not talked_about_alternative_grading:
 
                 call alternative_grading
 
-            "Maybe we shouldn't announce grade publicly?" if not talked_about_private_grades:
-
-                call private_grades
-
-            "Why do you need to be that successful?" if not talked_about_elitism:
-
-                call elitism
-
-            "Why do you study?" if not talked_about_why_study:
-
-                call why_study
-
-            "Some pupils do worse." if not talked_about_other_classmates_worse:
-
-                call other_classmates_worse
-
-            "Some pupils do better." if not talked_about_other_classmates_better:
+            "So it's because of other pupils doing better that you're not satisfied?" if not talked_about_other_classmates_better:
 
                 call other_classmates_better
 
-            "Why don't you smile?" if not talked_about_facial_expression:
+            "Not everyone can get grades that good." if not talked_about_other_classmates_worse:
 
-                call facial_expression
+                call other_classmates_worse
 
-    jump dialogue_end
+            "Everyone has their own circumstances and affinities." if unlocked_talked_about_circumstances and not talked_about_circumstances:
+
+                call circumstances
+
+            "Maybe I shouldn't say the grades out loud then?" if not talked_about_private_grades and unlocked_private_grades:
+
+                call private_grades
+
+            "Why do you need to be that successful?" if not talked_about_elitism and unlocked_elitism:
+
+                call elitism
+
+            "Why do you study?" if not talked_about_why_study and unlocked_why_study:
+
+                call why_study
+
+            #"Why don't you smile?" if not talked_about_facial_expression:
+
+                #call facial_expression
+
+            "That's all I wanted to say (end conversation)":
+
+                jump dialogue_end
 
     ## %% They talk about alternative grading: 120 %%
 label alternative_grading:
 
     $ talked_about_alternative_grading = True
 
-    t "Maybe the 20-point grading system makes you feel that way because it's so precise? What if I were using some A-B-C-D grading?"
+    t "So the precise scoring is what bothers you? What about some letter grades instead? A to D?"
 
-    b "… Well, it'd probably feel like covering my mistakes, but at least I'd have the satisfaction of being top-ranked, even with a few mistakes—assuming I get A. Wouldn't 17 be more like a B though?"
+    b "I admit it would cover up the small mistakes… Wouldn't 17 be a B though?"
 
-    t "Hm… I suppose so. But more likely a B+!"
+    t "Maybe… But more likely a B+!"
 
     b "…"
+
+    return
 
     t "Anyway, my point is, you have to focus on the big picture: the test ensures that you have a broad understanding of the topic."
 
@@ -155,7 +164,7 @@ label alternative_grading:
 
     b "But I already see what was wrong, and I have nothing more to learn."
 
-    t "Then that's great too. Most students here don't understand what is missing, and have difficulties fixing their shortcomings. Being able to understand one's mistakes quickly is a strength."
+    t "Then that's great too. Most pupils here don't understand what is missing, and have difficulties fixing their shortcomings. Being able to understand one's mistakes quickly is a strength."
 
     b "…"
 
@@ -173,103 +182,27 @@ label alternative_grading:
 
     return
 
-    ### %% They talk about private grades: 40 %%
-label private_grades:
-
-    $ talked_about_private_grades = True
-
-    t "What about not announcing grades publicly, so you don't compare yourself to others?"
-
-    b "I see, that would allow me to focus on my own work… Although it would feel like hiding the truth to make me feel better."
-
-    t "You're hard on yourself!"
-
-    return
-
-    ## %% They talk about working hard to survive vs studying: 150 %%
-label elitism:
-
-    $ talked_about_elitism = True
-
-    t "Why do you think you need to be that much successful everywhere?"
-
-    b "Not everywhere. Where I already know I'm not totally bad."
-
-    t "Are your parents pushing that far?"
-
-    b "No, I just don't like failing. Although my father appreciates it when I get good grades."
-
-    t "I'm guessing from your name that he comes from Vietnam?"
-
-    b "Yes, why?"
-
-    t "As a migrant, he may make a point of ensuring you are successful in academics in order to be both well integrated in society and make a lot of money. I am one myself so I know that feeling."
-
-    t "But your generation lives in peace and is already well integrated. You don't need to strain yourself like this."
-
-    b "…"
-
-    b "But I want to deserve my parents' wealth. If I don't work in an office, studying is the second best thing I can do."
-
-    t "I see. But in offices, employees have no grades, their overall performance and teamwork matters more."
-
-    # TODO: combine with similar professional talk above
-    return
-
-    ## %% They talk about the real value of knowledge skills, applied outside school: 100 %%
-label why_study:
-
-    $ talked_about_why_study = True
-
-    t "Why are you studying?"
-
-    "Đạt raises an eyebrow."
-
-    b "Well, that's what school is for. We study so we become better, we can pass exams and prove that we're worth it and go on in life."
-
-    t "No, I mean, what do you want to do in life with everything you would have learned here?"
-
-    "The boy ponders."
-
-    b "No clue. I suppose I could get a job in human sciences or something, but I'm not interested in research that much."
-
-    t "Then that's one thing you can think about that may considerably shift your values."
-
-    t "If you do end up in human sciences, that knowledge will be much more important to you that it will be for another student, even if they had a better grade."
-
-    b "Isn't that precisely a good reason to be the best?"
-
-    t "Maybe. But more importantly, you'll practice every day and so your 17 will be a solid 17. While you can get a 19 by revising a lot before the test, and forget it later."
-
-    "Đạt glanced at Jordan."
-
-    b "Hm. I don't think you can score that much just with last time revisions, but I get your point."
-
-    t "Even without becoming a professional, this knowledge is worth what it is. Maybe you can talk with your parents about Southeast Asia's decolonisation."
-
-    b "I see…"
-
-    return
-
-    ## %% They talk about other classmates doing worse, and their own circumstances: 60 %%
-label other_classmates_worse:
-
-    $ talked_about_other_classmates_worse = True
-
-    t "You know, not everyone can get grades that good, you should consider yourself lucky."
-
-    b "Maybe I'm lucky to have potential, but I still need to work. Besides, people who don't get good grades get used to mediocrity and stop caring."
-
-    b "People who do must raise the bar and are just as likely to miss it. I don't see how that makes me luckier."
-
-    return
-
     ## %% They talk about other classmates doing better, and their own circumstances: 180 %%
 label other_classmates_better:
 
     $ talked_about_other_classmates_better = True
 
-    t "Every human has circumstances, some may fare better or worse depending on their context and mental state."
+    t "So it's because of other pupils doing better that you're not satisfied?"
+
+    b "Partly. They are mostly showing that it was possible to answer some questions at our level."
+
+    $ unlocked_private_grades = True
+
+    $ unlocked_talked_about_circumstances = True
+
+    return
+
+    ## %% They talk about other classmates doing better, and their own circumstances: 180 %%
+label circumstances:
+
+    $ talked_about_circumstances = True
+
+    t "Well, everyone has different circumstances, some may fare better or worse depending on their context and mental state."
 
     b "But I didn't have particular issues for this exam, nor in general in life. So I have no excuses."
 
@@ -309,6 +242,109 @@ label other_classmates_better:
 
     t "Maybe he parties precisely to evacuate that stress?"
 
+    $ unlocked_elitism = True
+
+    $ unlocked_why_study = True
+
+    return
+
+    ## %% They talk about other classmates doing worse, and their own circumstances: 60 %%
+label other_classmates_worse:
+
+    $ talked_about_other_classmates_worse = True
+
+    t "You know, not everyone can get grades that good, you should consider yourself lucky."
+
+    b "Maybe I'm lucky to have potential, but I still need to work. Besides, people who don't get good grades get used to mediocrity and stop caring."
+
+    b "People who do must raise the bar and are just as likely to miss it. I don't see how that makes me luckier."
+
+    return
+
+    ## %% They talk about private grades: 40 %%
+label private_grades:
+
+    $ talked_about_private_grades = True
+
+    t "Maybe I shouldn't say the grades out loud then? So you don't compare yourself to others?"
+
+    b "Yes, that would allow me to focus on my own work… Although it would feel like hiding the truth to make me feel better."
+
+    t "You're hard on yourself!"
+
+    $ unlocked_elitism = True
+
+    $ unlocked_why_study = True
+
+    return
+
+    ## %% They talk about working hard to survive vs studying: 150 %%
+label elitism:
+
+    $ talked_about_elitism = True
+
+    t "Why do you think you need to be that much successful everywhere?"
+
+    b "Not everywhere. Where I already know I'm not totally bad."
+
+    t "Are your parents pushing that far?"
+
+    b "No, I just don't like failing. Although my father appreciates it when I get good grades."
+
+    t "I'm guessing from your name that he comes from Vietnam?"
+
+    b "Yes, why?"
+
+    t "As a migrant, he may make a point of ensuring you are successful in academics in order to be both well integrated in society and make a lot of money. I am one myself so I know that feeling."
+
+    t "But your generation lives in peace and is already well integrated. You don't need to strain yourself like this."
+
+    b "…"
+
+    b "But I want to deserve my parents' wealth. If I don't work in an office, studying is the second best thing I can do."
+
+    t "I see. But in offices, employees have no grades, their overall performance and teamwork matters more."
+
+    # TODO: combine with similar professional talk above
+    $ unlocked_dialogue_end = True
+
+    return
+
+    ## %% They talk about the real value of knowledge skills, applied outside school: 100 %%
+label why_study:
+
+    $ talked_about_why_study = True
+
+    t "Why are you studying?"
+
+    "Đạt raises an eyebrow."
+
+    b "Well, that's what school is for. We study so we become better, we can pass exams and prove that we're worth it and go on in life."
+
+    t "No, I mean, what do you want to do in life with everything you would have learned here?"
+
+    "The boy ponders."
+
+    b "No clue. I suppose I could get a job in human sciences or something, but I'm not interested in research that much."
+
+    t "Then that's one thing you can think about that may considerably shift your values."
+
+    t "If you do end up in human sciences, that knowledge will be much more important to you that it will be for another student, even if they had a better grade."
+
+    b "Isn't that precisely a good reason to be the best?"
+
+    t "Maybe. But more importantly, you'll practice every day and so your 17 will be a solid 17. While you can get a 19 by revising a lot before the test, and forget it later."
+
+    "Đạt glanced at Jordan."
+
+    b "Hm. I don't think you can score that much just with last time revisions, but I get your point."
+
+    t "Even without becoming a professional, this knowledge is worth what it is. Maybe you can talk with your parents about Southeast Asia's decolonisation."
+
+    b "I see…"
+
+    $ unlocked_dialogue_end = True
+
     return
 
     ### %% They talk about showing satisfaction: 50 %%
@@ -316,6 +352,7 @@ label facial_expression:
 
     $ talked_about_facial_expression = True
 
+    # CURRENTLY CUT
     t "I noticed you didn't smile but let out a sigh. Was it out of spite?"
 
     b "No, out of relief. I was worried I might have messed up this test."
@@ -355,4 +392,6 @@ label epilogue:
     "He's probably happier now, without grades and just the satisfaction of making something meaningful for the society."
 
     "Oh, the film is scored 85\% on Rotten Tomatoes."
+
+    return
 
