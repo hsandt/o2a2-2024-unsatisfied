@@ -138,3 +138,7 @@ CubismSdkForNative-4-*.zip
 # PAID ASSETS
 
 /game/wordcounter+.rpy
+
+# Offline tools
+
+/game/renpy-graphviz*
