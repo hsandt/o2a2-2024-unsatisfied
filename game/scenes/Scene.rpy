@@ -32,7 +32,7 @@ label scene1:
     t "That's it. I'll give you some time to check your answers once more. Tell me if you have any questions."
 
     ## %% Boy crumples paper: 20 %%
-label .boy_crumples_paper:
+label boy_crumples_paper:
 
     # SFX: crumpling paper
     "I sort my notes to prepare the incoming lesson, when the sound of crumbled paper catches my attention."
@@ -52,7 +52,7 @@ label .boy_crumples_paper:
     "I walk to his desk."
 
     ## %% Teacher starts talking: 50 %%
-label .dialogue_start:
+label dialogue_start:
 
     menu:
 
@@ -60,14 +60,14 @@ label .dialogue_start:
 
         "Pretend not to have seen anything and compliment him on his writing":
 
-            jump .good_job
+            jump good_job
 
         "Ask him why he crumpled the paper":
 
-            jump .why_crumple
+            jump why_crumple
 
     ## %% They talk about the optimistic and pessimistic view on grades: 80 %%
-label .good_job:
+label good_job:
 
     t "Good job! The part on the Third World's non-alignment with the United States and the USSR was well constructed."
 
@@ -75,17 +75,17 @@ label .good_job:
 
     b "If it was only about that…"
 
-    jump .flip_pages
+    jump flip_pages
 
-label .why_crumple:
+label why_crumple:
 
     t "Why did you crumple your essay? It was very good."
 
     b "Not good enough, apparently."
 
-    jump .flip_pages
+    jump flip_pages
 
-label .flip_pages:
+label flip_pages:
 
     "He flips the pages to focus on other parts of the test, revealing a few other points I had marked in red while correcting the paper."
 
@@ -100,7 +100,7 @@ label .flip_pages:
     b "To me, it's just 3 points missing. And I could have avoided that. The other pupils prove it."
 
     ## %% Teacher can choose next topic freely: 50 %%
-label .dialogue_hub:
+label dialogue_hub:
 
     while not (talked_about_alternative_grading and talked_about_private_grades and talked_about_elitism and talked_about_why_study and talked_about_other_classmates_worse and talked_about_other_classmates_better and talked_about_facial_expression):
 
@@ -108,36 +108,36 @@ label .dialogue_hub:
 
             "Maybe we should give global ranks instead of points?" if not talked_about_alternative_grading:
 
-                call .alternative_grading
+                call alternative_grading
 
             "Maybe we shouldn't announce grade publicly?" if not talked_about_private_grades:
 
-                call .private_grades
+                call private_grades
 
             "Why do you need to be that successful?" if not talked_about_elitism:
 
-                call .elitism
+                call elitism
 
             "Why do you study?" if not talked_about_why_study:
 
-                call .why_study
+                call why_study
 
             "Some pupils do worse." if not talked_about_other_classmates_worse:
 
-                call .other_classmates_worse
+                call other_classmates_worse
 
             "Some pupils do better." if not talked_about_other_classmates_better:
 
-                call .other_classmates_better
+                call other_classmates_better
 
             "Why don't you smile?" if not talked_about_facial_expression:
 
-                call .facial_expression
+                call facial_expression
 
-    jump .dialogue_end
+    jump dialogue_end
 
     ## %% They talk about alternative grading: 120 %%
-label .alternative_grading:
+label alternative_grading:
 
     $ talked_about_alternative_grading = True
 
@@ -174,7 +174,7 @@ label .alternative_grading:
     return
 
     ### %% They talk about private grades: 40 %%
-label .private_grades:
+label private_grades:
 
     $ talked_about_private_grades = True
 
@@ -187,7 +187,7 @@ label .private_grades:
     return
 
     ## %% They talk about working hard to survive vs studying: 150 %%
-label .elitism:
+label elitism:
 
     $ talked_about_elitism = True
 
@@ -217,7 +217,7 @@ label .elitism:
     return
 
     ## %% They talk about the real value of knowledge skills, applied outside school: 100 %%
-label .why_study:
+label why_study:
 
     $ talked_about_why_study = True
 
@@ -252,7 +252,7 @@ label .why_study:
     return
 
     ## %% They talk about other classmates doing worse, and their own circumstances: 60 %%
-label .other_classmates_worse:
+label other_classmates_worse:
 
     $ talked_about_other_classmates_worse = True
 
@@ -265,7 +265,7 @@ label .other_classmates_worse:
     return
 
     ## %% They talk about other classmates doing better, and their own circumstances: 180 %%
-label .other_classmates_better:
+label other_classmates_better:
 
     $ talked_about_other_classmates_better = True
 
@@ -312,7 +312,7 @@ label .other_classmates_better:
     return
 
     ### %% They talk about showing satisfaction: 50 %%
-label .facial_expression:
+label facial_expression:
 
     $ talked_about_facial_expression = True
 
@@ -331,7 +331,7 @@ label .facial_expression:
     return
 
     ## %% The conversation ends, the teacher understanding better and pupil considering the teacher’s words: 50 %%
-label .dialogue_end:
+label dialogue_end:
 
     t "So, you think you can be satisfied with what you did?"
 
@@ -340,7 +340,7 @@ label .dialogue_end:
     pause 1.0
 
     ## %% Epilogue: 50 %%
-label .epilogue:
+label epilogue:
 
     scene bg black
 
