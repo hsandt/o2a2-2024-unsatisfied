@@ -342,6 +342,8 @@ label .dialogue_end:
     ## %% Epilogue: 50 %%
 label .epilogue:
 
+    scene bg black
+
     "Epilogue - 7 years later"
 
     "In my living room, at the end of the documentary, I recognise a name in the credits."
