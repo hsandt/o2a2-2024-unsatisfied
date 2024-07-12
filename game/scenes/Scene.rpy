@@ -2,8 +2,7 @@
 # !! DO NOT MODIFY MANUALLY EXCEPT FOR VERY QUICK TESTING,
 # !! AS ANY CHANGES WILL BE OVERWRITTEN ON NEXT CONVERSION FROM MARKDOWN SOURCES
 
-## %% Boy has just received paper result and is angry at the imperfect grade: 120 %%
-### %% White screen: teacher distributes papers to students, saying grades out loud %%
+## %% Teacher distributes paper: 120 %%
 label scene1:
 
     # show white BG
@@ -40,8 +39,9 @@ label scene1:
     # SFX: crumpling paper
     "I expect him to throw the ball into the bin, but instead, he unwraps it and flattens it down on his desk—revealing his wrinkled essay."
 
-    ### %% Scene shows boy’s desktop and half-crumpled paper %%
     # Scene: show boy's desktop + half-crumpled paper + boy's bust
+    scene bg classroom
+
     ## %% Other pupils around murmur and complain about his behaviour, but the boy ignores them: 40 %%
     "Some students whisper to their neighbours while peeking at him."
 
