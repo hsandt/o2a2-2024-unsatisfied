@@ -26,8 +26,6 @@ default talked_about_other_classmates_better = False
 default unlocked_talked_about_circumstances = False
 default talked_about_circumstances = False
 
-default talked_about_other_classmates_worse = False
-
 default unlocked_private_grades = False
 default talked_about_private_grades = False
 

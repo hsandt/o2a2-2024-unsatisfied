@@ -115,10 +115,6 @@ label question_grading:
 
                 call other_classmates_better
 
-            "Not everyone can get grades that good." if not talked_about_other_classmates_worse:
-
-                call other_classmates_worse
-
             "Everyone has their own circumstances and affinities." if unlocked_talked_about_circumstances and not talked_about_circumstances:
 
                 call circumstances
@@ -158,30 +154,6 @@ label alternative_grading:
 
     return
 
-    t "Anyway, my point is, you have to focus on the big picture: the test ensures that you have a broad understanding of the topic."
-
-    t "Then, if you couldn't answer some questions, that's something you can dig deeper into."
-
-    b "But I already see what was wrong, and I have nothing more to learn."
-
-    t "Then that's great too. Most pupils here don't understand what is missing, and have difficulties fixing their shortcomings. Being able to understand one's mistakes quickly is a strength."
-
-    b "…"
-
-    t "And sometimes, even then, it's worth digging deeper: the test, after all, can be passed by tackling the surface of each topic, but real history is much deeper."
-
-    t "The more you understand a topic in depth, the less likely you're to make small mistakes."
-
-    t "This is what professionals and experts do: they study beyond what's asked from them."
-
-    t "Academics don't undergo tests like these. Instead, they focus on researching further, writing papers or delivering talks."
-
-    t "And office employees don't have grades either, only their overall performance matters."
-
-    b "Hm. Sounds nice."
-
-    return
-
     ## %% They talk about other classmates doing better, and their own circumstances: 180 %%
 label other_classmates_better:
 
@@ -197,7 +169,7 @@ label other_classmates_better:
 
     return
 
-    ## %% They talk about other classmates doing better, and their own circumstances: 180 %%
+    ## %% They talk about other classmates doing better or worse, and their own circumstances: 180 %%
 label circumstances:
 
     $ talked_about_circumstances = True
@@ -212,13 +184,43 @@ label circumstances:
 
     t "Maybe you can do more?"
 
+    b "But I already see what was wrong, and I have nothing more to learn."
+
+    t "Then that's great too. Most pupils here don't understand what is missing, and have difficulties fixing their shortcomings. Being able to understand one's mistakes quickly is a strength."
+
     b "I suppose so… but if Jordan can get 19 without extra work, why should I? Sounds unfair to me."
 
-    "I look around the classroom."
+    menu:
 
-    t "Maybe that's also what other pupils think about you."
+        "Training can bring stability.":
 
-    b "Oh, the sandwich effect."
+            call stability
+
+        "Maybe that's also what other pupils think about you.":
+
+            call sandwich
+
+    call circumstances_end
+
+label stability:
+
+    t "Maybe. But more importantly, you'll practise every day and so your 17 will be a solid 17. While you can get a 19 by revising a lot before the test, and forget it later."
+
+    "Đạt glanced at Jordan."
+
+    b "Hm. I don't think you can score that much just with last time revisions, but I get your point."
+
+    return
+
+label sandwich:
+
+    t "Maybe that's also what other pupils think about you. Not everyone can get grades that good, after all."
+
+    b "Well, they probably don't work as hard so I'n sure they don't care as much."
+
+    t "But maybe some of them do?"
+
+    b "Then that's the sandwich effect."
 
     pause 0.5
 
@@ -226,9 +228,13 @@ label circumstances:
 
     b "Yes, when you rank second, you're annoyed because you couldn't beat the first. {b}And{/b} the third one and everyone else below complain about you because you beat them but still complain."
 
-    b "So you get sandwiched between them and take double penalty."
+    b "So you get sandwiched between them and take a double penalty."
 
     t "Right, I understand…"
+
+    return
+
+label circumstances_end:
 
     t "Anyway, nothing says that Jordan is not putting extra work anywhere. If not in history, it could be in mathematics or sports."
 
@@ -236,7 +242,7 @@ label circumstances:
 
     b "Fine, I will consider."
 
-    b "In the meantime, Jordan doesn't pressured or anything. He always goes to parties."
+    b "In the meantime, Jordan doesn't seem pressured or anything. He always goes to parties."
 
     t "You don't seem stressed outside exam results either, casually talking to your friends."
 
@@ -245,19 +251,6 @@ label circumstances:
     $ unlocked_elitism = True
 
     $ unlocked_why_study = True
-
-    return
-
-    ## %% They talk about other classmates doing worse, and their own circumstances: 60 %%
-label other_classmates_worse:
-
-    $ talked_about_other_classmates_worse = True
-
-    t "You know, not everyone can get grades that good, you should consider yourself lucky."
-
-    b "Maybe I'm lucky to have potential, but I still need to work. Besides, people who don't get good grades get used to mediocrity and stop caring."
-
-    b "People who do must raise the bar and are just as likely to miss it. I don't see how that makes me luckier."
 
     return
 
@@ -305,7 +298,6 @@ label elitism:
 
     t "I see. But in offices, employees have no grades, their overall performance and teamwork matters more."
 
-    # TODO: combine with similar professional talk above
     $ unlocked_dialogue_end = True
 
     return
@@ -315,7 +307,7 @@ label why_study:
 
     $ talked_about_why_study = True
 
-    t "Why are you studying?"
+    t "Why are you studying for?"
 
     "Đạt raises an eyebrow."
 
@@ -327,43 +319,25 @@ label why_study:
 
     b "No clue. I suppose I could get a job in human sciences or something, but I'm not interested in research that much."
 
-    t "Then that's one thing you can think about that may considerably shift your values."
+    t "Then try to focus on the big picture: see beyond the test, that is only tackling the surface of the topic, and think about what each lesson can bring you in life."
 
-    t "If you do end up in human sciences, that knowledge will be much more important to you that it will be for another student, even if they had a better grade."
+    b "Hm. I have a feeling most classes at school are theoretical, aren't they?"
 
-    b "Isn't that precisely a good reason to be the best?"
+    t "That's right. The core curriculum is probably a bit too broad and many lessons sound abstract for people who are not interested in the field."
 
-    t "Maybe. But more importantly, you'll practice every day and so your 17 will be a solid 17. While you can get a 19 by revising a lot before the test, and forget it later."
+    t "But for others, that knowledge will be much more important to you than it will be for another student, even if they had a better grade."
 
-    "Đạt glanced at Jordan."
+    b "Shouldn't I become the best precisely because I want it to be my main field?"
 
-    b "Hm. I don't think you can score that much just with last time revisions, but I get your point."
+    t "That's a good reason, but you can dig each topic deeper over time. Academics write papers and give talks, and their contribution is assessed by how much they bring to the research community."
 
-    t "Even without becoming a professional, this knowledge is worth what it is. Maybe you can talk with your parents about Southeast Asia's decolonisation."
+    t "While some professionals work with companies on practical applications, and are evaluated based on what they actually produce."
 
-    b "I see…"
+    t "They don't estimate the value of their works by grades, but directly from what they can make."
+
+    b "Hm. That sounds nice."
 
     $ unlocked_dialogue_end = True
-
-    return
-
-    ### %% They talk about showing satisfaction: 50 %%
-label facial_expression:
-
-    $ talked_about_facial_expression = True
-
-    # CURRENTLY CUT
-    t "I noticed you didn't smile but let out a sigh. Was it out of spite?"
-
-    b "No, out of relief. I was worried I might have messed up this test."
-
-    t "Then why the sudden change of mind?"
-
-    b "Because Jordan did better."
-
-    t "You can be proud of yourself and smile about your success."
-
-    b "No, that would be boasting. Or worse, if something else got a better grade right after me, I'll look stupid. Which happened, so I'm glad I didn't smile."
 
     return
 
