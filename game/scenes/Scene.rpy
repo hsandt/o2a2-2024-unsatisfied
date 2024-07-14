@@ -13,7 +13,7 @@ label scene1:
 
     t "Héloïse, 13."
 
-    "The girl tries hard to hide her pout as she takes the essay, but I can see through. I know she's used to better. It's a pity, but her depiction of Russia's stance on decolonisation was more than inaccurate."
+    "The girl tries hard to hide her pout as she takes the essay, but I can see right through her. I know she's used to better. It's a pity, but her depiction of Russia's stance on decolonisation was far from accurate."
 
     t "Ismail, 16."
 
@@ -25,7 +25,7 @@ label scene1:
 
     t "Jordan, 19."
 
-    "Jordan, with his usual joyful gait, comes to receive his trophy. He walks back to his seat under the congratulations—in teen slang—of his comrades."
+    "Jordan, with his usual joyful gait, comes forward to receive his 'trophy'. He walks back to his seat, basking in the congratulations of his comrades."
 
     "I finish giving the papers back and address the class:"
 
@@ -72,7 +72,7 @@ label dialogue_start:
 
 label good_job:
 
-    t "Good job! The part on the Third World's non-alignment with the United States and the USSR was well constructed."
+    t "Good job! The part on the Third World and the Non-Aligned Movement (NAM) was well constructed."
 
     "Đạt raises his eyes to look at me, but my compliment only makes him grimace."
 
@@ -265,7 +265,7 @@ label private_grades:
 
     t "Maybe I shouldn't say the grades out loud then? So you don't compare yourself to others?"
 
-    b "Yes, that would allow me to focus on my own work… Although it would feel like hiding the truth to make me feel better."
+    b "Yes, that would allow me to focus on my own work… although it would feel like hiding the truth to make me feel better."
 
     t "You're hard on yourself!"
 
@@ -280,19 +280,19 @@ label elitism:
 
     $ talked_about_elitism = True
 
-    t "Why do you think you need to be that much successful everywhere?"
+    t "Why do you think you need to be so successful everywhere?"
 
-    b "Not everywhere. Where I already know I'm not totally bad."
+    b "Not everywhere. Just where I already know I'm not totally bad."
 
-    t "Are your parents pushing that far?"
+    t "Are your parents pushing you that hard?"
 
-    b "No, I just don't like failing. Although my father appreciates it when I get good grades."
+    b "No, I just don't like failing, although my father appreciates it when I get good grades."
 
     t "I'm guessing from your name that he comes from Vietnam?"
 
     b "Yes, why?"
 
-    t "As a migrant, he may make a point of ensuring you are successful in academics in order to be both well integrated in society and make a lot of money. I am one myself so I know that feeling."
+    t "As a migrant, he may make a point of ensuring you are successful in academics in order to ensure you're both well integrated in society and can make a lot of money. I am one myself so I know that feeling."
 
     t "But your generation lives in peace and is already well integrated. You don't need to strain yourself like this."
 
