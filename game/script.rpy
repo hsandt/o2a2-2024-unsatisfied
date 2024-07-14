@@ -41,6 +41,9 @@ default talked_about_elitism = False
 default unlocked_why_study = False
 default talked_about_why_study = False
 
+default talked_about_hobbies = False
+default unlocked_hobbies = False
+
 default unlocked_dialogue_end = False
 
 # unused

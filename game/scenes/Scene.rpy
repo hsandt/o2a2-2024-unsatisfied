@@ -21,7 +21,11 @@ label scene1:
 
     "But instead of a smile, the boy lets out a sigh as he receives the essay. Out of spite, or relief?"
 
+    window hide
+
     pause 0.5
+
+    window show
 
     t "Jordan, 19."
 
@@ -44,7 +48,7 @@ label boy_crumples_paper:
     # SFX: crumpling paper
     play audio sfx.crumple_paper_short
 
-    "I expect him to throw the ball into the bin, but instead, he unwraps it and flattens it down on his desk—revealing his wrinkled essay."
+    "Instead of throwing the ball into the bin, he unwraps it and flattens it down on his desk—revealing his wrinkled essay."
 
     # Scene: show boy's desktop + half-crumpled paper + boy's bust
     scene bg classroom with dissolve
@@ -137,6 +141,10 @@ label question_grading:
 
                 #call facial_expression
 
+            "Do you have some hobbies?" if not talked_about_hobbies and unlocked_hobbies:
+
+                call hobbies
+
             "Let's resume the class. (end conversation)" if unlocked_dialogue_end:
 
                 jump dialogue_end
@@ -148,7 +156,7 @@ label alternative_grading:
 
     t "So the precise scoring is what bothers you? What if it was using letter grades instead? A to D?"
 
-    b "I admit it would cover up the small mistakes… Wouldn't 17 correspond to B, though?"
+    b "It {i}would{/i} cover up small mistakes… Wouldn't 17 correspond to B, though?"
 
     t "I'd say B+!"
 
@@ -192,7 +200,11 @@ label circumstances:
 
     t "That is great too. Many pupils fail to understand what they miss. Being able to quickly understand one's mistakes and fix one's shortcomings is a strength."
 
+    window hide
+
     pause 1.0
+
+    window show
 
     b "OK, I get it. I have a chance to improve. But it's still annoying that I have to put all this extra work to get two extra points, while Jordan just plays it cool."
 
@@ -280,13 +292,19 @@ label elitism:
 
     b "…"
 
+    window hide
+
     pause 1.0
+
+    window show
 
     b "But I want to deserve my current wealth. If I don't work in an office, studying is the second best thing I can do."
 
     t "I see. But in offices, employees have no grades, their actual performance and teamwork matter more."
 
     b "Hm… Sounds like a much more relaxing place than my father described to me."
+
+    $ unlocked_hobbies = True
 
     $ unlocked_dialogue_end = True
 
@@ -299,25 +317,37 @@ label why_study:
 
     t "Why are you studying?"
 
-    "Đạt raises an eyebrow."
-
-    b "That's what we do at school… To pass exams and prove that we're worth a higher status, later in life."
+    b "Well, that's what school is for… To pass exams and prove that we're worth a higher status, later in life."
 
     t "Then, what do you want to do in life?"
 
-    "The boy ponders."
+    window hide
 
-    b "No clue. I suppose I could get a job in human sciences or something…"
+    pause 0.5
 
-    t "Then focus on the bigger picture."
+    window show
 
-    t "A test evaluates the specific set of knowledge of a pupil at a given time, but for someone who wants to work in that field, the deeper understanding of a topic is more important."
+    b "No clue. Maybe a job in human sciences or something…"
 
-    t "And that is something you cultivate over time, outside and after school, like researchers and other professionals."
+    t "Then look at the bigger picture."
 
-    b "Great. I just got more homework."
+    t "A test evaluates a specific set of knowledge, but for someone who wants to work in that field, it is more important to have a deeper understanding of it."
 
-    t "You're already doing things outside homework, right? Things that you enjoy."
+    t "That is something you cultivate over time, and not just at school."
+
+    b "Great. More homework."
+
+    $ unlocked_hobbies = True
+
+    $ unlocked_dialogue_end = True
+
+    return
+
+label hobbies:
+
+    $ talked_about_hobbies = True
+
+    t "Do you have some hobbies?"
 
     b "I've been dabbling in video editing lately."
 
@@ -342,6 +372,8 @@ label dialogue_end:
 
     "As I come back to my seat, I glance once more at Đạt. He takes his essay and looks at it, this time with a bitter smile."
 
+    window hide
+
     pause 1.0
 
     ## %% Epilogue: 50 %%
@@ -349,7 +381,15 @@ label epilogue:
 
     scene bg white_blueish with dissolve
 
-    show text "Epilogue - 7 years later" at center
+    pause 1.0
+
+    show text "Epilogue - 7 years later" at center with dissolve
+
+    pause 2.0
+
+    hide text with dissolve
+
+    window show
 
     "As the documentary of the boat people ends, I recognise Đạt's name in the credits."
 
@@ -357,9 +397,15 @@ label epilogue:
 
     "He's probably happier now, with grades replaced by the satisfaction of making something meaningful for society."
 
+    window hide
+
     pause 1.0
 
+    window show
+
     "Oh, the film has a 85\% Rotten Tomatoes score. {p=1.0}That's excellent!"
+
+    window hide
 
     return
 
