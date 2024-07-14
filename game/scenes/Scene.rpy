@@ -105,8 +105,6 @@ label dialogue_hub:
 
 label question_grading:
 
-    $ alternative_grading_menu_text = "So the precise scoring is what bothers you?"
-
     # Note: in production, we should probably localize those strings
     $ alternative_grading_menu_text = "So the precise scoring is what bothers you? A"
 
