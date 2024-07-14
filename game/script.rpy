@@ -17,6 +17,11 @@ image bg classroom = "images/bg/classroom.webp"
 define t = Character("Teacher")
 define b = Character("Đạt")
 
+## SFX assets
+
+define sfx.crumple_paper = "audio/sfx/crumple_paper.opus"
+define sfx.crumple_paper_short = "<to 1.430>audio/sfx/crumple_paper.opus"
+
 
 # Story event flags
 

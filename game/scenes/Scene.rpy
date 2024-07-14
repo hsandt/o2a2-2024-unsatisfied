@@ -35,11 +35,15 @@ label scene1:
 label boy_crumples_paper:
 
     # SFX: crumpling paper
-    "I sort my notes to prepare the incoming lesson, when the sound of crumbled paper catches my attention."
+    play audio sfx.crumple_paper
+
+    "I sort my notes to prepare the incoming lesson, when the sound of a crumpling paper catches my attention."
 
     "I see Đạt clutching a paper ball, even more serious than before."
 
     # SFX: crumpling paper
+    play audio sfx.crumple_paper_short
+
     "I expect him to throw the ball into the bin, but instead, he unwraps it and flattens it down on his desk—revealing his wrinkled essay."
 
     # Scene: show boy's desktop + half-crumpled paper + boy's bust
