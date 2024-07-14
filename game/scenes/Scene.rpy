@@ -39,30 +39,28 @@ label boy_crumples_paper:
     # SFX: crumpling paper
     play audio sfx.crumple_paper
 
-    "I sort my notes to prepare the incoming lesson, when the sound of a crumpling paper catches my attention."
+    "I sort my notes to prepare the lesson, when the sound of a crumpling paper catches my attention."
 
-    "I see Đạt clutching a paper ball, seemingly annoyed."
+    "I see Đạt annoyed, clutching a paper ball."
 
     # SFX: crumpling paper
     play audio sfx.crumple_paper_short
 
-    "Instead of throwing the ball into the bin, he unwraps it and flattens it down on his desk—revealing his wrinkled essay."
+    "Instead of throwing it into the bin, he unwraps it on his desk—revealing his wrinkled essay."
 
     # Scene: show boy's desktop + half-crumpled paper + boy's bust
     scene bg classroom with dissolve
 
-    "Some of the teenagers whisper to their neighbours while peeking at him."
+    "Some of the teenagers peek at him, whispering to their neighbours. I'd better have a look."
 
-    "I'd better have a look to find out what's wrong."
-
-    "I walk to his desk and start talking."
+    "I walk to Đạt's desk."
 
     ## %% Teacher starts talking about the optimistic and pessimistic view on grades: 150 %%
 label dialogue_start:
 
     menu:
 
-        "Pretend not to have seen anything and compliment him on his writing.":
+        "Compliment him on his writing.":
 
             jump good_job
 
@@ -134,10 +132,6 @@ label question_grading:
             "Why do you study?" if not talked_about_why_study and unlocked_why_study and not talked_about_elitism:
 
                 call why_study
-
-            #"Why don't you smile?" if not talked_about_facial_expression:
-
-                #call facial_expression
 
             "Do you have some hobbies?" if not talked_about_hobbies and unlocked_hobbies:
 
