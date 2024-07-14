@@ -139,7 +139,7 @@ label question_grading:
 
                 #call facial_expression
 
-            "That's all I wanted to say (end conversation)":
+            "Let's resume the class. (end conversation)" if unlocked_dialogue_end:
 
                 jump dialogue_end
 
