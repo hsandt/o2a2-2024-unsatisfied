@@ -5,7 +5,7 @@
 ## %% Teacher distributes paper: 100 %%
 label scene1:
 
-    scene bg white
+    scene bg white_blueish
 
     t "Thomas, 15."
 
@@ -357,7 +357,7 @@ label dialogue_end:
     ## %% Epilogue: 50 %%
 label epilogue:
 
-    scene bg white with dissolve
+    scene bg white_blueish with dissolve
 
     "Epilogue - 7 years later"
 

@@ -4,7 +4,8 @@
 ## Backgrounds (1080p)
 
 image bg black = Solid("#000000")
-image bg white = Solid("#ffffff")
+# image bg white = Solid("#ffffff")
+image bg white_blueish = Solid("#f4f4f8")
 
 image bg classroom = "images/bg/classroom.webp"
 
@@ -52,14 +53,14 @@ transform center:
 
 # https://www.renpy.org/doc/html/splashscreen_presplash.html
 label splashscreen:
-    scene bg white
+    scene bg white_blueish
     with Pause(1)
 
     show image "images/logo/O2A2 logo transparent.webp" at center
     with dissolve
     with Pause(2)
 
-    scene bg white
+    scene bg white_blueish
     with dissolve
     with Pause(1)
 
