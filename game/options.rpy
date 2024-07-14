@@ -20,6 +20,9 @@ define config.name = _("Unsatisfied")
 
 define gui.show_name = False
 
+# Custom flag to allow us to print version number near title logo integrated in BG, but not title
+define gui.show_version = True
+
 
 ## The version of the game.
 
