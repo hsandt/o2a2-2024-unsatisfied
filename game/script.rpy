@@ -5,7 +5,8 @@
 
 image bg black = Solid("#000000")
 # image bg white = Solid("#ffffff")
-image bg white_blueish = Solid("#f4f4f8")
+# image bg white_blueish = Solid("#f4f4f8")
+image bg white_yellowish = Solid("#ffffef")
 
 image bg classroom = "images/bg/classroom.webp"
 
@@ -41,8 +42,8 @@ default talked_about_elitism = False
 default unlocked_why_study = False
 default talked_about_why_study = False
 
-default talked_about_hobbies = False
 default unlocked_hobbies = False
+default talked_about_hobbies = False
 
 default unlocked_dialogue_end = False
 
@@ -56,14 +57,14 @@ transform center:
 
 # https://www.renpy.org/doc/html/splashscreen_presplash.html
 label splashscreen:
-    scene bg white_blueish
+    scene bg white_yellowish
     with Pause(1)
 
     show image "images/logo/O2A2 logo transparent.webp" at center
     with dissolve
     with Pause(2)
 
-    scene bg white_blueish
+    scene bg white_yellowish
     with dissolve
     with Pause(1)
 

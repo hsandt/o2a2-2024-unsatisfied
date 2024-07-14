@@ -121,10 +121,10 @@ define config.after_load_transition = None
 
 ## Used when entering the main menu after the game has ended.
 
-define config.end_game_transition = Fade(0.5, 1.0, 1.0, color='#f4f4f8')
+define config.end_game_transition = Fade(0.5, 1.0, 1.0, color='#ffffef')
 
 # CUSTOM: same for splash -> main menu
-define config.end_splash_transition = Fade(0.5, 0.0, 0.5, color='#f4f4f8')
+define config.end_splash_transition = Fade(0.5, 0.0, 0.5, color='#ffffef')
 
 
 ## A variable to set the transition used when the game starts does not exist.
