@@ -266,21 +266,25 @@ label elitism:
 
     t "Are your parents pushing you that hard?"
 
-    b "No, I just don't like failing, although my father appreciates it when I get good grades."
+    b "No, it's me. My father appreciates it when I get good grades though."
 
-    t "I'm guessing from your name that he comes from Vietnam?"
+    t "Does he come from Vietnam? From war times?"
 
     b "Yes, why?"
 
-    t "As a migrant, he may make a point of ensuring you are successful in academics in order to ensure you're both well integrated in society and can make a lot of money. I am one myself so I know that feeling."
+    t "He must find it critical that you succeed in academics to attain a brighter future—and make a lot of money."
 
-    t "But your generation lives in peace and is already well integrated. You don't need to strain yourself like this."
+    t "But your generation lives in peace and is already well integrated in society. You don't need to strain yourself like this."
 
     b "…"
 
-    b "But I want to deserve my parents' wealth. If I don't work in an office, studying is the second best thing I can do."
+    pause 1.0
 
-    t "I see. But in offices, employees have no grades, their overall performance and teamwork matters more."
+    b "But I want to deserve my current wealth. If I don't work in an office, studying is the second best thing I can do."
+
+    t "I see. But in offices, employees have no grades, their actual performance and teamwork matter more."
+
+    b "Hm… Sounds like a much more relaxing place than my father described to me."
 
     $ unlocked_dialogue_end = True
 
@@ -295,9 +299,9 @@ label why_study:
 
     "Đạt raises an eyebrow."
 
-    b "That's what we do at school… We study to pass exams and prove that we're worth a higher status later in life."
+    b "That's what we do at school… To pass exams and prove that we're worth a higher status, later in life."
 
-    t "I see… Then, what do you want to do in life?"
+    t "Then, what do you want to do in life?"
 
     "The boy ponders."
 
@@ -305,29 +309,25 @@ label why_study:
 
     t "Then focus on the bigger picture."
 
-    t "A test is only evaluating you on a specific set of knowledge. Especially in junior high school, it verifies how much you remembered from the classes."
+    t "A test evaluates the specific set of knowledge of a pupil at a given time, but for someone who wants to work in that field, the deeper understanding of a topic is more important."
 
-    t "Whereas a deep understanding of a topic is something you cultivate over time, outside and after school. This is what researchers and other professionals do."
+    t "And that is something you cultivate over time, outside and after school, like researchers and other professionals."
 
-    b "Great. Now I just have more homework."
+    b "Great. I just got more homework."
 
-    t "Well, you are already doing things outside homework, right? Things that you enjoy."
+    t "You're already doing things outside homework, right? Things that you enjoy."
 
-    b "Hm… I've been doing some video editing lately."
+    b "I've been dabbling in video editing lately."
 
-    t "And what makes you satisfied with it, if nobody evaluates you?"
+    t "And what makes you satisfied with it?"
 
-    b "When I make something good. I think I can assess the quality of a video on my own…"
+    b "Creating a good video I'm proud to show to others."
 
-    t "Then think about it this way. You may not have all the exact answers to the test, but you know enough."
+    t "So you are able to assess the quality of your own work, without people giving you grades."
 
-    t "You can spend your remaining time working on the specific points you missed, but you can also study other topics around that theme, as you please."
+    b "Sounds like a good principle. Maybe I get to grade my own work one day?"
 
-    t "For instance, the current curriculum is more focused on decolonisation Africa, but you could have a look at what happened in Southeast Asia."
-
-    t "Then, why not, combine it with your hobby and make a video about it?"
-
-    b "Wow. That's the first time a teacher said that to me."
+    t "Haha! I'll mention it to the education officer."
 
     $ unlocked_dialogue_end = True
 
@@ -338,9 +338,7 @@ label dialogue_end:
 
     t "Good. Let's resume the class."
 
-    t "So, you think you can be satisfied with what you did?"
-
-    b "I don't know. At least I know what I did wrong. For the rest, I can't guarantee."
+    "As I come back to my seat, I glance once more at Đạt. He takes his essay and looks at it, this time with a bitter smile."
 
     pause 1.0
 
@@ -349,17 +347,17 @@ label epilogue:
 
     scene bg white_blueish with dissolve
 
-    "Epilogue - 7 years later"
+    show text "Epilogue - 7 years later" at center
 
-    "In my living room, at the end of the documentary, I recognise a name in the credits."
+    "As the documentary of the boat people ends, I recognise Đạt's name in the credits."
 
-    "I check on LinkedIn that it's not a homonym, but it is him."
+    "I check his profile on LinkedIn and confirm that it's him."
 
-    "It looks like Đạt is investigating cross-continental migrations and tracing the stories of families who left it all in search of a better life, without war nor totalitarianism."
+    "He's probably happier now, with grades replaced by the satisfaction of making something meaningful for society."
 
-    "He's probably happier now, without grades and just the satisfaction of making something meaningful for the society."
+    pause 1.0
 
-    "Oh, the film is scored 85\% on Rotten Tomatoes."
+    "Oh, the film has a 85\% Rotten Tomatoes score. {p=1.0}That's excellent!"
 
     return
 
