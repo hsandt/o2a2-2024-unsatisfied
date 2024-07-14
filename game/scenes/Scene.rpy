@@ -117,19 +117,19 @@ label question_grading:
 
                 call other_classmates_better
 
-            "Everyone has different circumstances and affinities." if unlocked_talked_about_circumstances and not talked_about_circumstances:
+            "Everyone has different circumstances and affinities." if unlocked_talked_about_circumstances and not talked_about_circumstances and not talked_about_private_grades:
 
                 call circumstances
 
-            "Maybe I shouldn't say the grades out loud?" if not talked_about_private_grades and unlocked_private_grades:
+            "Maybe I shouldn't say the grades out loud?" if not talked_about_private_grades and unlocked_private_grades and not talked_about_circumstances:
 
                 call private_grades
 
-            "Why do you need to be that successful?" if not talked_about_elitism and unlocked_elitism:
+            "Why do you need to be that successful?" if not talked_about_elitism and unlocked_elitism and not talked_about_why_study:
 
                 call elitism
 
-            "Why do you study?" if not talked_about_why_study and unlocked_why_study:
+            "Why do you study?" if not talked_about_why_study and unlocked_why_study and not talked_about_elitism:
 
                 call why_study
 
