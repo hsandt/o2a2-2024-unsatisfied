@@ -114,7 +114,7 @@ label question_grading:
 
     $ elitism_menu_text = "Why try to be so successful in everything?"
 
-    $ why_study_menu_text = "Why do you study"
+    $ why_study_menu_text = "Why do you study?"
 
     $ hobbies_menu_text = "Do you have some hobbies?"
 
