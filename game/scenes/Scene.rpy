@@ -11,15 +11,15 @@ label scene1:
 
     "The girl comes to my desk and I give her the corrected paper."
 
-    t "Good progress! Your writing is shorter yet clearer than last time."
+    t "Good progress! Your writing is clearer than last time."
 
-    "Héloïse smiles and goes back to her desk."
+    "Héloïse smiles and returns to her seat."
 
     t "Đạt, 17."
 
     t "Excellent work, as usual!"
 
-    "But instead of a smile, the boy lets out a sigh as he receives the essay. Out of spite, or relief?"
+    "The boy lets out a sigh as he receives the essay. Out of spite, or relief?"
 
     window hide
 
@@ -31,9 +31,7 @@ label scene1:
 
     "Jordan, with his usual joyful gait, comes forward to receive his 'trophy'. He walks back to his seat, basking in the congratulations of his comrades."
 
-    "I finish giving the papers back and address the class:"
-
-    t "That's it. I'll give you some time to check your answers once more. Tell me if you have any questions."
+    t "That's it. I'll give you some time to check your answers. Tell me if you have any questions."
 
     ## %% Boy crumples paper: 20 %%
 label boy_crumples_paper:
@@ -266,9 +264,9 @@ label elitism:
 
     $ talked_about_elitism = True
 
-    t "Why do you think you need to be so successful in everything?"
+    t "Why try to be so successful in everything?"
 
-    b "Not everything. Just in what I'm not the worst at."
+    b "Not everything. Just in what I'm decent at."
 
     t "Are your parents pushing you that hard?"
 
@@ -292,7 +290,7 @@ label elitism:
 
     b "But I want to deserve my current wealth. If I don't work in an office, studying is the second best thing I can do."
 
-    t "I see. But in offices, employees have no grades, their actual performance and teamwork matter more."
+    t "Actually, in offices, employees have no grades, their actual performance and teamwork matter more."
 
     b "Hm… Sounds more relaxing than my father described it to be."
 
