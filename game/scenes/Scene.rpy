@@ -210,6 +210,8 @@ label circumstances:
 
     call circumstances_end
 
+    return
+
 label sandwich:
 
     t "Sandwiched?"
