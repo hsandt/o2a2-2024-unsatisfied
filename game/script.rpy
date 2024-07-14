@@ -46,6 +46,26 @@ default unlocked_dialogue_end = False
 # default talked_about_facial_expression = False
 
 
+transform center:
+    xalign 0.5
+    yalign 0.5
+
+# https://www.renpy.org/doc/html/splashscreen_presplash.html
+label splashscreen:
+    scene bg white
+    with Pause(1)
+
+    show image "images/logo/O2A2 logo transparent.webp" at center
+    with dissolve
+    with Pause(2)
+
+    scene bg white
+    with dissolve
+    with Pause(1)
+
+    return
+
+
 # The game starts here.
 
 label start:
