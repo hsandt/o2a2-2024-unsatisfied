@@ -186,19 +186,16 @@ label circumstances:
 
     $ talked_about_circumstances = True
 
-    t "Everyone has different circumstances and affinities. Some may fare better or worse depending on their context and mental state."
+    t "Depending on circumstances and affinities, people may fare differently at exams."
 
-    b "But I didn't have any particular issues for this exam, nor in general in life. I have no excuses not to perform like Jordan."
+    b "But I didn't have any particular issues, so I have no excuses not to perform like Jordan."
 
-    t "I think Jordan exercises a lot."
+    t "I think he exercises a lot."
 
-    b "I also do! I do all the homework."
+    b "I also do! I do all the homework. But since I just missed a few points, I don't see what more I could revise."
 
-    t "Is there anything you could study further?"
-
-    b "No, I just missed a few points, I don't see what more I could revise."
-
-    t "That's great too. Many pupils fail can't get what they miss. Quickly understanding and fixing one's shortcomings is a strength."
+    # t "That's great too. Many pupils can't get what they miss."
+    t "Quickly understanding and fixing one's shortcomings is a strength."
 
     window hide
 
@@ -206,7 +203,7 @@ label circumstances:
 
     window show
 
-    b "OK, I get it. I have a chance to improve. But it's still annoying that I have to put all this extra work to recover two points, while Jordan just plays it cool."
+    b "Fine, I get it. But why should I put extra work to recover two points, while Jordan just plays it cool?"
 
     b "Plus, I don't like getting sandwiched like that."
 
@@ -216,7 +213,7 @@ label circumstances:
 
             call sandwich
 
-        "I think Jordan may be stressed too sometimes.":
+        "Jordan may also be stressed.":
 
             pass
 
@@ -230,20 +227,17 @@ label sandwich:
 
     b "Ranking second means annoyance because you couldn't beat the first, whereas the third—and everyone else below—are upset about you because you beat them and still complain."
 
-    t "I understand…"
-
     return
 
 label circumstances_end:
 
-    t "Actually, I think Jordan may be stressed too sometimes. If not in history, he may be working extra for mathematics, or even sports."
+    t "Actually, Jordan may also be stressed. If not in history, he may be working extra for mathematics, or even sports."
 
     b "He still parties a lot, doesn't he?"
 
-    t "Well, as a teacher, I'm not aware of extracurricular activities, but I know that pressured students precisely do that to relieve stress."
+    t "I couldn't say, but I know that pressured students do that to relieve stress."
 
-    t "In fact, if you don't feel the need to do so, you may already be handling things pretty well."
-
+    # t "In fact, if you don't feel the need to do so, you may already be handling things pretty well."
     $ unlocked_elitism = True
 
     $ unlocked_why_study = True
