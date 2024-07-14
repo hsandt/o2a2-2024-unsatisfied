@@ -47,7 +47,7 @@ label boy_crumples_paper:
     "I expect him to throw the ball into the bin, but instead, he unwraps it and flattens it down on his desk—revealing his wrinkled essay."
 
     # Scene: show boy's desktop + half-crumpled paper + boy's bust
-    scene bg classroom
+    scene bg classroom with dissolve
 
     "Some teenagers whisper to their neighbours while peeking at him."
 
@@ -357,7 +357,7 @@ label dialogue_end:
     ## %% Epilogue: 50 %%
 label epilogue:
 
-    scene bg black
+    scene bg white with dissolve
 
     "Epilogue - 7 years later"
 
