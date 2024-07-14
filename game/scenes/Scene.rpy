@@ -121,7 +121,7 @@ label question_grading:
 
                 call other_classmates_better
 
-            "Everyone has different circumstances and affinities." if unlocked_talked_about_circumstances and not talked_about_circumstances and not talked_about_private_grades:
+            "Everyone has different circumstances and affinities." if unlocked_circumstances and not talked_about_circumstances and not talked_about_private_grades:
 
                 call circumstances
 
@@ -171,13 +171,13 @@ label other_classmates_better:
 
     t "So you are annoyed by other pupils doing better?"
 
-    b "Partly. They are mostly showing what grade was possible to get. It's like looking at a game leaderboard on the net, except the top player is sitting right next to you."
+    b "Partly. It's like looking at a videogame leaderboard, except the top player is sitting right next to you, and you know it could have been you."
 
-    "I don't ask him what a leaderboard is, but I think I understand."
-
+    # CUT
+    # "I don't ask him what a leaderboard is, but I think I understand."
     $ unlocked_private_grades = True
 
-    $ unlocked_talked_about_circumstances = True
+    $ unlocked_circumstances = True
 
     return
 
@@ -188,17 +188,17 @@ label circumstances:
 
     t "Everyone has different circumstances and affinities. Some may fare better or worse depending on their context and mental state."
 
-    b "But I didn't have any particular issues for this exam, nor in general in life. So I have no excuses."
+    b "But I didn't have any particular issues for this exam, nor in general in life. I have no excuses not to perform like Jordan."
 
-    t "I think Jordan trains a lot."
+    t "I think Jordan exercises a lot."
 
     b "I also do! I do all the homework."
 
     t "Is there anything you could study further?"
 
-    b "No, I just… I just missed a few points, but now it looks obvious… I don't see what more I could revise."
+    b "No, I just missed a few points, I don't see what more I could revise."
 
-    t "That is great too. Many pupils fail to understand what they miss. Being able to quickly understand one's mistakes and fix one's shortcomings is a strength."
+    t "That's great too. Many pupils fail can't get what they miss. Quickly understanding and fixing one's shortcomings is a strength."
 
     window hide
 
@@ -206,7 +206,7 @@ label circumstances:
 
     window show
 
-    b "OK, I get it. I have a chance to improve. But it's still annoying that I have to put all this extra work to get two extra points, while Jordan just plays it cool."
+    b "OK, I get it. I have a chance to improve. But it's still annoying that I have to put all this extra work to recover two points, while Jordan just plays it cool."
 
     b "Plus, I don't like getting sandwiched like that."
 
@@ -228,9 +228,7 @@ label sandwich:
 
     t "Sandwiched?"
 
-    b "Yes, when you rank second, you're annoyed because you couldn't beat the first. {b}And{/b} the third—and everyone else below—complain about you because you beat them, but still complain."
-
-    b "So you get sandwiched between them and take a double penalty."
+    b "Ranking second means annoyance because you couldn't beat the first, whereas the third—and everyone else below—are upset about you because you beat them and still complain."
 
     t "I understand…"
 
@@ -242,7 +240,7 @@ label circumstances_end:
 
     b "He still parties a lot, doesn't he?"
 
-    t "Well, as a teacher, I'm not aware of extracurricular activities, but I know that pressured students precisely do that to evacuate stress."
+    t "Well, as a teacher, I'm not aware of extracurricular activities, but I know that pressured students precisely do that to relieve stress."
 
     t "In fact, if you don't feel the need to do so, you may already be handling things pretty well."
 
@@ -274,9 +272,9 @@ label elitism:
 
     $ talked_about_elitism = True
 
-    t "Why do you think you need to be so successful everywhere?"
+    t "Why do you think you need to be so successful in everything?"
 
-    b "Not everywhere. Just where I already know I'm not totally bad."
+    b "Not everything. Just in what I'm not the worst at."
 
     t "Are your parents pushing you that hard?"
 
@@ -302,7 +300,7 @@ label elitism:
 
     t "I see. But in offices, employees have no grades, their actual performance and teamwork matter more."
 
-    b "Hm… Sounds like a much more relaxing place than my father described to me."
+    b "Hm… Sounds more relaxing than my father described it to be."
 
     $ unlocked_hobbies = True
 
@@ -317,7 +315,7 @@ label why_study:
 
     t "Why are you studying?"
 
-    b "Well, that's what school is for… To pass exams and prove that we're worth a higher status, later in life."
+    b "Well, that's what school is for… To pass exams and prove that we're worthy of a higher status, later in life."
 
     t "Then, what do you want to do in life?"
 
@@ -329,9 +327,7 @@ label why_study:
 
     b "No clue. Maybe a job in human sciences or something…"
 
-    t "Then look at the bigger picture."
-
-    t "A test evaluates a specific set of knowledge, but for someone who wants to work in that field, it is more important to have a deeper understanding of it."
+    t "Well, it's more important for a professional to have a deep understanding of a topic than to pass a specific test, so you should aim for that instead."
 
     t "That is something you cultivate over time, and not just at school."
 
@@ -353,11 +349,11 @@ label hobbies:
 
     t "And what makes you satisfied with it?"
 
-    b "Creating a good video I'm proud to show to others."
+    b "Creating a good video that I'm proud to show to others."
 
-    t "So you are able to assess the quality of your own work, without people giving you grades."
+    t "So you're able to assess the quality of your own work without people giving you grades."
 
-    b "Sounds like a good principle. Maybe I get to grade my own work one day?"
+    b "Sounds like a good principle. Maybe I'll get to grade my own work one day?"
 
     t "Haha! I'll mention it to the education officer."
 
@@ -370,7 +366,7 @@ label dialogue_end:
 
     t "Good. Let's resume the class."
 
-    "As I come back to my seat, I glance once more at Đạt. He takes his essay and looks at it, this time with a bitter smile."
+    "Returning to my seat, I glance once more at Đạt. He takes his essay and looks at it, this time with a bitter smile."
 
     window hide
 
@@ -393,9 +389,9 @@ label epilogue:
 
     "As the documentary of the boat people ends, I recognise Đạt's name in the credits."
 
-    "I check his profile on LinkedIn and confirm that it's him."
+    "I check his profile on LinkedIn and confirm it's him."
 
-    "He's probably happier now, with grades replaced by the satisfaction of making something meaningful for society."
+    "He must be happier now. No grades, just making something to be proud of."
 
     window hide
 
@@ -403,7 +399,7 @@ label epilogue:
 
     window show
 
-    "Oh, the film has a 85\% Rotten Tomatoes score. {p=1.0}That's excellent!"
+    "Oh, the film has an 85\% Rotten Tomatoes score. {p=1.0}That's excellent!"
 
     window hide
 

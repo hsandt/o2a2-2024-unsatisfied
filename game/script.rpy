@@ -30,7 +30,7 @@ define sfx.crumple_paper_short = "<to 1.430>audio/sfx/crumple_paper.opus"
 default talked_about_alternative_grading = False
 default talked_about_other_classmates_better = False
 
-default unlocked_talked_about_circumstances = False
+default unlocked_circumstances = False
 default talked_about_circumstances = False
 
 default unlocked_private_grades = False
