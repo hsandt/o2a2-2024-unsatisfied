@@ -7,21 +7,21 @@ label scene1:
 
     scene bg white_blueish
 
-    t "Thomas, 15."
+    t "Héloïse, 14."
 
-    "The boy stands up and comes to my desk to receive his corrected paper, seemingly satisfied."
+    "The girl comes to my desk and I give her the corrected paper."
 
-    t "Héloïse, 13."
+    t "Good progress! Your writing is shorter yet clearer than last time."
 
-    "The girl tries hard to hide her pout as she takes the essay, but I can see right through her. I know she's used to better. It's a pity, but her depiction of Russia's stance on decolonisation was far from accurate."
-
-    t "Ismail, 16."
-
-    "The procession continues for half a minute."
+    "Héloïse smiles and goes back to her desk."
 
     t "Đạt, 17."
 
-    "17 out of 20 is an excellent grade, but instead of a smile, the pupil lets out a sigh."
+    t "Excellent work, as usual!"
+
+    "But instead of a smile, the boy lets out a sigh as he receives the essay. Out of spite, or relief?"
+
+    pause 0.5
 
     t "Jordan, 19."
 
@@ -39,7 +39,7 @@ label boy_crumples_paper:
 
     "I sort my notes to prepare the incoming lesson, when the sound of a crumpling paper catches my attention."
 
-    "I see Đạt clutching a paper ball, even more serious than before."
+    "I see Đạt clutching a paper ball, seemingly annoyed."
 
     # SFX: crumpling paper
     play audio sfx.crumple_paper_short
@@ -49,30 +49,28 @@ label boy_crumples_paper:
     # Scene: show boy's desktop + half-crumpled paper + boy's bust
     scene bg classroom with dissolve
 
-    "Some teenagers whisper to their neighbours while peeking at him."
+    "Some of the teenagers whisper to their neighbours while peeking at him."
 
     "I'd better have a look to find out what's wrong."
 
-    "I walk to his desk."
+    "I walk to his desk and start talking."
 
     ## %% Teacher starts talking about the optimistic and pessimistic view on grades: 150 %%
 label dialogue_start:
 
     menu:
 
-        "How should I start the conversation?"
-
-        "Pretend not to have seen anything and compliment him on his writing":
+        "Pretend not to have seen anything and compliment him on his writing.":
 
             jump good_job
 
-        "Ask him why he crumpled the paper":
+        "Ask him why he crumpled the paper.":
 
             jump why_crumple
 
 label good_job:
 
-    t "Good job! The part on the Third World and the Non-Aligned Movement (NAM) was well constructed."
+    t "That was a good one, especially the part on the Third World and the Non-Aligned Movement."
 
     "Đạt raises his eyes to look at me, but my compliment only makes him grimace."
 
@@ -90,7 +88,7 @@ label why_crumple:
 
 label flip_pages:
 
-    "He flips the pages to focus on other parts of the test, revealing a few other points I had marked in red while correcting the paper."
+    "He flips the pages to reveal a few paragraphs circled in red."
 
     t "Yes, the dates were not really accurate, but what matters is that you got the big picture."
 
@@ -98,9 +96,9 @@ label flip_pages:
 
     b "It's not just the dates, I also got the events wrong. It was obvious."
 
-    t "Maybe, but the rest was correct, enough to be worth 17 points in my grading."
+    t "Maybe, but the rest was correct. That's why I gave you a 17."
 
-    b "To me, it's just 3 points missing. And I could have avoided that. The other pupils prove it."
+    b "To me, it's just three points missing. And I could have avoided that. The other pupils prove it."
 
     ## %% HUB: Teacher can choose next topic freely: 50 %%
 label dialogue_hub:
@@ -111,19 +109,19 @@ label question_grading:
 
         menu:
 
-            "So the precise scoring is what bothers you?" if not talked_about_alternative_grading:
+            "So the precise scoring is what bothers you?" if not talked_about_alternative_grading and not talked_about_other_classmates_better:
 
                 call alternative_grading
 
-            "So it's because of other pupils doing better that you're not satisfied?" if not talked_about_other_classmates_better:
+            "So you are annoyed by other pupils doing better?" if not talked_about_other_classmates_better:
 
                 call other_classmates_better
 
-            "Everyone has their own circumstances and affinities." if unlocked_talked_about_circumstances and not talked_about_circumstances:
+            "Everyone has different circumstances and affinities." if unlocked_talked_about_circumstances and not talked_about_circumstances:
 
                 call circumstances
 
-            "Maybe I shouldn't say the grades out loud then?" if not talked_about_private_grades and unlocked_private_grades:
+            "Maybe I shouldn't say the grades out loud?" if not talked_about_private_grades and unlocked_private_grades:
 
                 call private_grades
 
@@ -148,11 +146,11 @@ label alternative_grading:
 
     $ talked_about_alternative_grading = True
 
-    t "So the precise scoring is what bothers you? What about some letter grades instead? A to D?"
+    t "So the precise scoring is what bothers you? What if it was using letter grades instead? A to D?"
 
-    b "I admit it would cover up the small mistakes… Wouldn't 17 be a B though?"
+    b "I admit it would cover up the small mistakes… Wouldn't 17 correspond to B, though?"
 
-    t "Maybe… But more likely a B+!"
+    t "I'd say B+!"
 
     b "…"
 
@@ -163,9 +161,11 @@ label other_classmates_better:
 
     $ talked_about_other_classmates_better = True
 
-    t "So it's because of other pupils doing better that you're not satisfied?"
+    t "So you are annoyed by other pupils doing better?"
 
-    b "Partly. They are mostly showing that it was possible to answer some questions at our level."
+    b "Partly. They are mostly showing what grade was possible to get. It's like looking at a game leaderboard on the net, except the top player is sitting right next to you."
+
+    "I don't ask him what a leaderboard is, but I think I understand."
 
     $ unlocked_private_grades = True
 
@@ -178,79 +178,59 @@ label circumstances:
 
     $ talked_about_circumstances = True
 
-    t "Well, everyone has different circumstances, some may fare better or worse depending on their context and mental state."
+    t "Everyone has different circumstances and affinities. Some may fare better or worse depending on their context and mental state."
 
-    b "But I didn't have particular issues for this exam, nor in general in life. So I have no excuses."
+    b "But I didn't have any particular issues for this exam, nor in general in life. So I have no excuses."
 
-    t "Maybe Jordan just trained a lot."
+    t "I think Jordan trains a lot."
 
     b "I also do! I do all the homework."
 
-    t "Maybe you can do more?"
+    t "Is there anything you could study further?"
 
-    b "But I already see what was wrong, and I have nothing more to learn."
+    b "No, I just… I just missed a few points, but now it looks obvious… I don't see what more I could revise."
 
-    t "Then that's great too. Most pupils here don't understand what is missing, and have difficulties fixing their shortcomings. Being able to understand one's mistakes quickly is a strength."
+    t "That is great too. Many pupils fail to understand what they miss. Being able to quickly understand one's mistakes and fix one's shortcomings is a strength."
 
-    b "I suppose so… but if Jordan can get 19 without extra work, why should I? Sounds unfair to me."
+    pause 1.0
+
+    b "OK, I get it. I have a chance to improve. But it's still annoying that I have to put all this extra work to get two extra points, while Jordan just plays it cool."
+
+    b "Plus, I don't like getting sandwiched like that."
 
     menu:
 
-        "Training can bring stability.":
-
-            call stability
-
-        "Maybe that's also what other pupils think about you.":
+        "Sandwiched?":
 
             call sandwich
 
+        "I think Jordan may be stressed too sometimes.":
+
+            pass
+
     call circumstances_end
-
-label stability:
-
-    t "Maybe. But more importantly, you'll practise every day and so your 17 will be a solid 17. While you can get a 19 by revising a lot before the test, and forget it later."
-
-    "Đạt glanced at Jordan."
-
-    b "Hm. I don't think you can score that much just with last time revisions, but I get your point."
-
-    return
 
 label sandwich:
 
-    t "Maybe that's also what other pupils think about you. Not everyone can get grades that good, after all."
+    t "Sandwiched?"
 
-    b "Well, they probably don't work as hard so I'n sure they don't care as much."
-
-    t "But maybe some of them do?"
-
-    b "Then that's the sandwich effect."
-
-    pause 0.5
-
-    t "The… sandwich?"
-
-    b "Yes, when you rank second, you're annoyed because you couldn't beat the first. {b}And{/b} the third one and everyone else below complain about you because you beat them but still complain."
+    b "Yes, when you rank second, you're annoyed because you couldn't beat the first. {b}And{/b} the third—and everyone else below—complain about you because you beat them, but still complain."
 
     b "So you get sandwiched between them and take a double penalty."
 
-    t "Right, I understand…"
+    t "I understand…"
 
     return
 
 label circumstances_end:
 
-    t "Anyway, nothing says that Jordan is not putting extra work anywhere. If not in history, it could be in mathematics or sports."
+    t "Actually, I think Jordan may be stressed too sometimes. If not in history, he may be working extra for mathematics, or even sports."
 
-    t "So there's no shame in doing some extra, especially on something that matters to you."
+    b "He still parties a lot, doesn't he?"
 
-    b "Fine, I will consider."
+    t "Well, as a teacher, I'm not aware of extracurricular activities, but I know that pressured students precisely do that to evacuate stress."
 
-    b "In the meantime, Jordan doesn't seem pressured or anything. He always goes to parties."
-
-    t "You don't seem stressed outside exam results either, casually talking to your friends."
-
-    t "Maybe he parties precisely to evacuate that stress?"
+    t "In fact, if you don't feel the need to do so, you may already be handling things pretty well."
 
     $ unlocked_elitism = True
 
@@ -263,9 +243,9 @@ label private_grades:
 
     $ talked_about_private_grades = True
 
-    t "Maybe I shouldn't say the grades out loud then? So you don't compare yourself to others?"
+    t "Maybe I shouldn't say the grades out loud? So pupils don't compare themselves to others?"
 
-    b "Yes, that would allow me to focus on my own work… although it would feel like hiding the truth to make me feel better."
+    b "Right, that would allow me to focus on my own work… although it feels a bit like hiding the truth to make me feel better."
 
     t "You're hard on yourself!"
 
@@ -355,6 +335,8 @@ label why_study:
 
     ## %% The conversation ends, the teacher understanding better and pupil considering the teacher’s words: 50 %%
 label dialogue_end:
+
+    t "Good. Let's resume the class."
 
     t "So, you think you can be satisfied with what you did?"
 
