@@ -105,15 +105,32 @@ label dialogue_hub:
 
 label question_grading:
 
+    $ alternative_grading_menu_text = "So the precise scoring is what bothers you?"
+
+    # Note: in production, we should probably localize those strings
+    $ alternative_grading_menu_text = "So the precise scoring is what bothers you? A"
+
+    $ other_classmates_better_menu_text = "So you are annoyed by other pupils doing better?"
+
+    $ private_grades_menu_text = "Maybe I shouldn't say the grades out loud?"
+
+    $ elitism_menu_text = "Why try to be so successful in everything?"
+
+    $ why_study_menu_text = "Why do you study"
+
+    $ hobbies_menu_text = "Do you have some hobbies?"
+
+    $ dialogue_end_menu_text = "Let's resume the class."
+
     while True:
 
         menu:
 
-            "So the precise scoring is what bothers you?" if not talked_about_alternative_grading and not talked_about_other_classmates_better:
+            "[alternative_grading_menu_text]" if not talked_about_alternative_grading and not talked_about_other_classmates_better:
 
                 call alternative_grading
 
-            "So you are annoyed by other pupils doing better?" if not talked_about_other_classmates_better:
+            "[other_classmates_better_menu_text]" if not talked_about_other_classmates_better:
 
                 call other_classmates_better
 
@@ -121,23 +138,23 @@ label question_grading:
 
                 call circumstances
 
-            "Maybe I shouldn't say the grades out loud?" if not talked_about_private_grades and unlocked_private_grades and not talked_about_circumstances:
+            "[private_grades_menu_text]" if not talked_about_private_grades and unlocked_private_grades and not talked_about_circumstances:
 
                 call private_grades
 
-            "Why do you need to be that successful?" if not talked_about_elitism and unlocked_elitism and not talked_about_why_study:
+            "[elitism_menu_text]" if not talked_about_elitism and unlocked_elitism and not talked_about_why_study:
 
                 call elitism
 
-            "Why do you study?" if not talked_about_why_study and unlocked_why_study and not talked_about_elitism:
+            "[why_study_menu_text]" if not talked_about_why_study and unlocked_why_study and not talked_about_elitism:
 
                 call why_study
 
-            "Do you have some hobbies?" if not talked_about_hobbies and unlocked_hobbies:
+            "[hobbies_menu_text]" if not talked_about_hobbies and unlocked_hobbies:
 
                 call hobbies
 
-            "Let's resume the class. (end conversation)" if unlocked_dialogue_end:
+            "[dialogue_end_menu_text] (end conversation)" if unlocked_dialogue_end:
 
                 jump dialogue_end
 
@@ -146,7 +163,7 @@ label alternative_grading:
 
     $ talked_about_alternative_grading = True
 
-    t "So the precise scoring is what bothers you? What if it was using letter grades instead? A to D?"
+    t "[alternative_grading_menu_text] What if it was using letter grades instead? A to D?"
 
     b "It {i}would{/i} cover up small mistakes… Wouldn't 17 correspond to B, though?"
 
@@ -161,7 +178,7 @@ label other_classmates_better:
 
     $ talked_about_other_classmates_better = True
 
-    t "So you are annoyed by other pupils doing better?"
+    t "[other_classmates_better_menu_text]"
 
     b "Partly. It's like looking at a videogame leaderboard, except the top player is sitting right next to you, and you know it could have been you."
 
@@ -199,9 +216,10 @@ label circumstances:
 
     b "Plus, I don't like getting sandwiched like that."
 
+    # $ sandwiched_menu_text = "Sandwiched?"
     menu:
 
-        "Sandwiched?":
+        "[sandwiched_menu_text]":
 
             call sandwich
 
@@ -215,7 +233,7 @@ label circumstances:
 
 label sandwich:
 
-    t "Sandwiched?"
+    t "[sandwiched_menu_text]"
 
     b "Ranking second means annoyance because you couldn't beat the first, whereas the third—and everyone else below—are upset about you because you beat them and still complain."
 
@@ -241,7 +259,7 @@ label private_grades:
 
     $ talked_about_private_grades = True
 
-    t "Maybe I shouldn't say the grades out loud? So pupils don't compare themselves to others?"
+    t "[private_grades_menu_text] So pupils don't compare themselves to others?"
 
     b "Right, that would allow me to focus on my own work… although it feels a bit like hiding the truth to make me feel better."
 
@@ -258,7 +276,7 @@ label elitism:
 
     $ talked_about_elitism = True
 
-    t "Why try to be so successful in everything?"
+    t "[elitism_menu_text]"
 
     b "Not everything. Just in what I'm decent at."
 
@@ -299,7 +317,7 @@ label why_study:
 
     $ talked_about_why_study = True
 
-    t "Why are you studying?"
+    t "[why_study_menu_text]"
 
     b "Well, that's what school is for… To pass exams and prove that we're worthy of a higher status, later in life."
 
@@ -329,7 +347,7 @@ label hobbies:
 
     $ talked_about_hobbies = True
 
-    t "Do you have some hobbies?"
+    t "[hobbies_menu_text]"
 
     b "I've been dabbling in video editing lately."
 
@@ -350,7 +368,7 @@ label hobbies:
     ## %% The conversation ends, the teacher understanding better and pupil considering the teacher’s words: 50 %%
 label dialogue_end:
 
-    t "Good. Let's resume the class."
+    t "Good. [dialogue_end_menu_text]"
 
     "Returning to my seat, I glance once more at Đạt. He takes his essay and looks at it, this time with a bitter smile."
 
