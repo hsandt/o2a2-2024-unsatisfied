@@ -106,7 +106,7 @@ label dialogue_hub:
 label question_grading:
 
     # Note: in production, we should probably localize those strings
-    $ alternative_grading_menu_text = "So the precise scoring is what bothers you? A"
+    $ alternative_grading_menu_text = "So the precise scoring is what bothers you?"
 
     $ other_classmates_better_menu_text = "So you are annoyed by other pupils doing better?"
 
@@ -214,7 +214,8 @@ label circumstances:
 
     b "Plus, I don't like getting sandwiched like that."
 
-    # $ sandwiched_menu_text = "Sandwiched?"
+    $ sandwiched_menu_text = "Sandwiched?"
+
     menu:
 
         "[sandwiched_menu_text]":
@@ -393,7 +394,7 @@ label epilogue:
 
     "I check his profile on LinkedIn and confirm it's him."
 
-    "He must be happier now. No grades, just making something to be proud of."
+    "He must be happier now. No grades, just the satisfaction of making something meaningful for society."
 
     window hide
 
