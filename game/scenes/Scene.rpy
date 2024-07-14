@@ -311,35 +311,43 @@ label why_study:
 
     $ talked_about_why_study = True
 
-    t "Why are you studying for?"
+    t "Why are you studying?"
 
     "Đạt raises an eyebrow."
 
-    b "Well, that's what school is for. We study so we become better, we can pass exams and prove that we're worth it and go on in life."
+    b "That's what we do at school… We study to pass exams and prove that we're worth a higher status later in life."
 
-    t "No, I mean, what do you want to do in life with everything you would have learned here?"
+    t "I see… Then, what do you want to do in life?"
 
     "The boy ponders."
 
-    b "No clue. I suppose I could get a job in human sciences or something, but I'm not interested in research that much."
+    b "No clue. I suppose I could get a job in human sciences or something…"
 
-    t "Then try to focus on the big picture: see beyond the test, that is only tackling the surface of the topic, and think about what each lesson can bring you in life."
+    t "Then focus on the bigger picture."
 
-    b "Hm. I have a feeling most classes at school are theoretical, aren't they?"
+    t "A test is only evaluating you on a specific set of knowledge. Especially in junior high school, it verifies how much you remembered from the classes."
 
-    t "That's right. The core curriculum is probably a bit too broad and many lessons sound abstract for people who are not interested in the field."
+    t "Whereas a deep understanding of a topic is something you cultivate over time, outside and after school. This is what researchers and other professionals do."
 
-    t "But for others, that knowledge will be much more important to you than it will be for another student, even if they had a better grade."
+    b "Great. Now I just have more homework."
 
-    b "Shouldn't I become the best precisely because I want it to be my main field?"
+    t "Well, you are already doing things outside homework, right? Things that you enjoy."
 
-    t "That's a good reason, but you can dig each topic deeper over time. Academics write papers and give talks, and their contribution is assessed by how much they bring to the research community."
+    b "Hm… I've been doing some video editing lately."
 
-    t "While some professionals work with companies on practical applications, and are evaluated based on what they actually produce."
+    t "And what makes you satisfied with it, if nobody evaluates you?"
 
-    t "They don't estimate the value of their works by grades, but directly from what they can make."
+    b "When I make something good. I think I can assess the quality of a video on my own…"
 
-    b "Hm. That sounds nice."
+    t "Then think about it this way. You may not have all the exact answers to the test, but you know enough."
+
+    t "You can spend your remaining time working on the specific points you missed, but you can also study other topics around that theme, as you please."
+
+    t "For instance, the current curriculum is more focused on decolonisation Africa, but you could have a look at what happened in Southeast Asia."
+
+    t "Then, why not, combine it with your hobby and make a video about it?"
+
+    b "Wow. That's the first time a teacher said that to me."
 
     $ unlocked_dialogue_end = True
 
