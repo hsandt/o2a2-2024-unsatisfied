@@ -19,6 +19,12 @@ image bg classroom = "images/bg/classroom.webp"
 define t = Character("Teacher")
 define b = Character("Đạt")
 
+## BGM assets
+
+# Not used, as options.rpy > config.main_menu_music must access file by path
+# In this case, I precut the track to be 72.274s long so `to` is optional here
+define bgm.theme = "<loop 1.365 to 72.274>audio/bgm/unsatisfied_theme_intro-loop.opus"
+
 ## SFX assets
 
 define sfx.crumple_paper = "audio/sfx/crumple_paper.opus"

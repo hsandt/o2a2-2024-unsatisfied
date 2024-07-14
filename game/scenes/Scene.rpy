@@ -387,13 +387,17 @@ label epilogue:
 
     window hide
 
-    pause 1.0
+    stop music fadeout 2.0
+
+    pause 2.0
 
     window show
 
-    "Oh, the film has an 85\% Rotten Tomatoes score. {p=1.0}That's excellent!"
+    "Oh, the film has an 85\% Rotten Tomatoes score. {p=2.0}That's excellent!"
 
     window hide
+
+    pause 2.0
 
     return
 
