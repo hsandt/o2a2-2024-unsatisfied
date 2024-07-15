@@ -365,11 +365,18 @@ screen main_menu():
 
     if gui.show_name:
 
+        # Only one item, but we need *some* container to use style anyway
         vbox:
             style "main_menu_vbox"
 
             text "[config.name!t]":
                 style "main_menu_title"
+
+    if gui.show_version:
+
+        # Only one item, but we need *some* container to use style anyway
+        vbox:
+            style "main_menu_vbox"
 
             text "[config.version]":
                 style "main_menu_version"
