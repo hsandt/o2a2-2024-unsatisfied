@@ -26,7 +26,7 @@ define gui.show_version = True
 
 ## The version of the game.
 
-define config.version = "1.0"
+define config.version = "1.1"
 
 
 ## Text that is placed on the game's about screen. Place the text between the
@@ -53,6 +53,8 @@ It is distributed exclusively on itch.io:
 - Proofreading & Feedback: zani, The Sloth
 
 {b}License{/b}
+
+Code is licensed under BSD-3-Clause.
 
 Unless otherwise stated, all assets are under copyright of their respective authors.
 

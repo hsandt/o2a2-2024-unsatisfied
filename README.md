@@ -12,13 +12,13 @@ It is distributed exclusively on itch.io:
 
 ### Development status
 
-**Game is currently in active development for the O2A2 VN Jam 2024**
+Game has been released for the O2A2 VN Jam 2024 and may receive a few post-jam patches.
 
 #### Changelog
 
-**v1.0.0 - 2024-07-14**
+**v1.0.0 - 2024-07-15**
 
-- Initial release (Ren'Py 8.2.3)
+- Initial release for O2A2 deadline (Ren'Py 8.2.3)
 
 ### Credits
 
@@ -31,6 +31,8 @@ It is distributed exclusively on itch.io:
 - Proofreading & Feedback: zani, The Sloth
 
 ### License
+
+Code is licensed under BSD-3-Clause.
 
 Unless otherwise stated, all assets are under copyright of their respective authors.
 
@@ -54,11 +56,11 @@ Unless otherwise stated, all assets are under copyright of their respective auth
 #### Art
 
 - Krita (mockup)
-- ...
+- Autodesk Sketchbook
 
 #### Audio
 
-- ...
+- Musescore
 
 #### Game engine
 
