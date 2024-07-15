@@ -54,6 +54,8 @@ It is distributed exclusively on itch.io:
 
 {b}License{/b}
 
+Code is licensed under BSD-3-Clause.
+
 Unless otherwise stated, all assets are under copyright of their respective authors.
 
 Free assets used
