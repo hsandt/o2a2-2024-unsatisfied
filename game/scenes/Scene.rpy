@@ -2,185 +2,413 @@
 # !! DO NOT MODIFY MANUALLY EXCEPT FOR VERY QUICK TESTING,
 # !! AS ANY CHANGES WILL BE OVERWRITTEN ON NEXT CONVERSION FROM MARKDOWN SOURCES
 
-## %% Boy has just received paper result and is angry at the imperfect grade: 120 %%
-### %% White screen: teacher distributes papers to students, saying grades out loud %%
+## %% Teacher distributes paper: 100 %%
 label scene1:
 
-    # show white BG
-    t "Thomas, 15."
+    scene bg white_yellowish
 
-    "The boy stands up and comes to my desk to receive his corrected paper, seemingly satisfied."
+    t "Héloïse, 14."
 
-    t "Héloïse, 13."
+    "The girl comes to my desk and I give her the corrected paper."
 
-    "The girl tries hard to hide her pout as she takes the essay, but I can see through. I know she's used to better. It's a pity, but her depiction of Russia's stance on decolonisation was more than inaccurate."
+    t "Good progress! Your writing is clearer than last time."
 
-    t "Ismail, 16."
-
-    "The procession continues for a minute."
+    "Héloïse smiles and returns to her seat."
 
     t "Đạt, 17."
 
-    "I don't know this one, he wasn't in my class last year. 17 out of 20 is very good, but the pupil doesn't show the hint of a smile. Either it's his usual grade, or he {i}is{/i} the king of poker faces."
+    t "Excellent work, as usual!"
+
+    "The boy lets out a sigh as he receives the essay. Out of spite, or relief?"
+
+    window hide
+
+    pause 0.5
+
+    window show
 
     t "Jordan, 19."
 
-    "Jordan, with his usual enjoyed gait, comes to receive his trophy. As he comes back to his seat, his friends are tapping him on the back."
+    "Jordan, with his usual joyful gait, comes forward to receive his 'trophy'. He walks back to his seat, basking in the congratulations of his comrades."
 
-    "I finish giving the papers back and address the class:"
+    t "That's it. I'll give you some time to check your answers. Tell me if you have any questions."
 
-    t "That's it, I'll give you some time to check your answers once more. Tell me if you have any questions."
+    ## %% Boy crumples paper: 20 %%
+label boy_crumples_paper:
 
-    ### %% we hear boy crumpling paper %%
     # SFX: crumpling paper
-    "I hear some paper being crumpled."
+    play audio sfx.crumple_paper
 
-    "I look around and see Đạt clutching his essay, firmly wrapped into a paper ball."
+    "I sort my notes to prepare the lesson, when the sound of a crumpling paper catches my attention."
 
-    "He's staring at the bin standing in a corner of the classroom, but instead of throwing the ball, he unwraps it and tries to flatten it down on his desk – maybe to check his answers once more, as instructed."
+    "I see Đạt annoyed, clutching a paper ball."
 
-    "But he doesn't have much to correct, so he just stays there glaring at his essay."
+    # SFX: crumpling paper
+    play audio sfx.crumple_paper_short
 
-    ### %% Scene shows boy’s desktop and half-crumpled paper %%
+    "Instead of throwing it into the bin, he unwraps it on his desk—revealing his wrinkled essay."
+
     # Scene: show boy's desktop + half-crumpled paper + boy's bust
-    ## %% Other pupils around murmur and complain about his behaviour, but the boy ignores them: 40 %%
-    "Some of the other students glance at him, but quickly feel uncomfortable and look away."
+    scene bg classroom with dissolve
 
-    "I suppose most of them have lower grades and don't appreciate seeing a peer complaining while faring better."
+    "Some of the teenagers peek at him, whispering to their neighbours. I'd better have a look."
 
-    ## %% New teacher approaches boy who can do nothing but be annoyed, and starts discussing: 30 %%
-    "I'd better have a look to find out what's wrong. I walk to his desk."
+    "I walk to Đạt's desk."
 
-    ## %% They talk about the optimistic and pessimistic view on grades: 80 %%
-    ### %% Teacher says A- (or some equivalent like 17/20) is a very good grade %%
+    ## %% Teacher starts talking about the optimistic and pessimistic view on grades: 150 %%
+label dialogue_start:
+
     menu:
 
-        "How should I start the conversation?"
+        "Compliment him on his writing.":
 
-        "Compliment him on his writing":
+            jump good_job
 
-            jump .good_job
+        "Ask him why he crumpled the paper.":
 
-        "Ask him why he crumpled the paper":
+            jump why_crumple
 
-            jump .why_crumple
+label good_job:
 
-label .good_job:
-
-    t "Good job! The part on the Third World's non-alignment with the United States and the USSR was well constructed."
+    t "That was a good one, especially the part on the Third World and the Non-Aligned Movement."
 
     "Đạt raises his eyes to look at me, but my compliment only makes him grimace."
 
     b "If it was only about that…"
 
-    jump .flip_pages
+    jump flip_pages
 
-label .why_crumple:
+label why_crumple:
 
     t "Why did you crumple your essay? It was very good."
 
     b "Not good enough, apparently."
 
-    jump .flip_pages
+    jump flip_pages
 
-label .flip_pages:
+label flip_pages:
 
-    "He flips the pages to focus on other parts of the test, revealing a few other points I had marked in red while correcting the paper."
+    "He flips the pages to reveal a few paragraphs circled in red."
 
     t "Yes, the dates were not really accurate, but what matters is that you got the big picture."
 
-    ### %% Pupil says then why the minus / that 17 is 3 points away from 20. Three stupid mistakes. Being the first in the class would make it acceptable, but it's not even the case. %%
     "The boy frowns."
 
-    b "It's not just the dates, I also got the events wrong, and it was obvious from a logical standpoint."
+    b "It's not just the dates, I also got the events wrong. It was obvious."
 
-    t "Maybe, but the rest was correct, enough to be worth 17 points in my grading."
+    t "Maybe, but the rest was correct. That's why I gave you a 17."
 
-    b "To me, it's just 3 points missing. And I could have avoided that, the other pupils prove it."
+    b "To me, it's just three points missing. And I could have avoided that. The other pupils prove it."
 
-    # => unlock rivalry talk
-    ## %% They talk about alternative ways to score and deliver score to pupils (self-correction, no grade, no public grade announcement…): 120 %%
-    ### %% Maybe ABC would be better than numeric score? %%
+    ## %% HUB: Teacher can choose next topic freely: 50 %%
+label dialogue_hub:
+
+label question_grading:
+
+    # Note: in production, we should probably localize those strings
+    $ alternative_grading_menu_text = "So the precise scoring is what bothers you?"
+
+    $ other_classmates_better_menu_text = "So you are annoyed by other pupils doing better?"
+
+    $ private_grades_menu_text = "Maybe I shouldn't say the grades out loud?"
+
+    $ elitism_menu_text = "Why try to be so successful in everything?"
+
+    $ why_study_menu_text = "Why do you study?"
+
+    $ hobbies_menu_text = "Do you have some hobbies?"
+
+    $ dialogue_end_menu_text = "Let's resume the class."
+
+    while True:
+
+        menu:
+
+            "[alternative_grading_menu_text]" if not talked_about_alternative_grading and not talked_about_other_classmates_better:
+
+                call alternative_grading
+
+            "[other_classmates_better_menu_text]" if not talked_about_other_classmates_better:
+
+                call other_classmates_better
+
+            "Everyone has different circumstances and affinities." if unlocked_circumstances and not talked_about_circumstances and not talked_about_private_grades:
+
+                call circumstances
+
+            "[private_grades_menu_text]" if not talked_about_private_grades and unlocked_private_grades and not talked_about_circumstances:
+
+                call private_grades
+
+            "[elitism_menu_text]" if not talked_about_elitism and unlocked_elitism and not talked_about_why_study:
+
+                call elitism
+
+            "[why_study_menu_text]" if not talked_about_why_study and unlocked_why_study and not talked_about_elitism:
+
+                call why_study
+
+            "[hobbies_menu_text]" if not talked_about_hobbies and unlocked_hobbies:
+
+                call hobbies
+
+            "[dialogue_end_menu_text] (end conversation)" if unlocked_dialogue_end:
+
+                jump dialogue_end
+
+    ## %% They talk about alternative grading: 120 %%
 label alternative_grading:
 
-    t "Maybe the 20-point grading system makes you feel that way because it's so precise? What if I was using some A-B-C-D grading?"
+    $ talked_about_alternative_grading = True
 
-    b "… well it'd probably feel like covering my mistakes, but at least I'd have the satisfaction of being top-ranked, even with a few mistakes – assuming I get A. Wouldn't 17 be more like a B though?"
+    t "[alternative_grading_menu_text] What if it was using letter grades instead? A to D?"
 
-    t "Hm… I suppose so. But more likely a B+!"
+    b "It {i}would{/i} cover up small mistakes… Wouldn't 17 correspond to B, though?"
 
-    b "…"
-
-    ### %% They talk about how the broad skill matters more than the details. After all, this is how it looks like in a pro environment, where there are no grades %%
-    t "Anyway, my point is, you have to focus on the big picture: the test ensures that you have a broad understanding of the topic."
-
-    t "Then, if you couldn't answer some questions, that's something you can dig deeper."
-
-    b "But I already see what was wrong, and I have nothing more to learn."
-
-    t "Then that's great too. Most students here don't understand what is missing, and have difficulties fixing their shortcomings. Being able to understand one's mistakes quickly is a quality."
+    t "I'd say B+!"
 
     b "…"
 
-    t "And sometimes, even then, it's worth digging deeper: the test, after all, can be succeeded by tackling the surface of each topic, but real history is much deeper."
+    return
 
-    t "The more you understand a topic in depth, the less you're likely to make small mistakes."
+    ## %% They talk about other classmates doing better, and their own circumstances: 180 %%
+label other_classmates_better:
 
-    t "This is what professionals and experts do: they study beyond what's asked from them."
+    $ talked_about_other_classmates_better = True
 
-    t "Academics don't undergo tests like these, instead they focus on researching further, writing papers or delivering talks."
+    t "[other_classmates_better_menu_text]"
 
-    t "And office employees don't have grades either, only their overall performance matters."
+    b "Partly. It's like looking at a videogame leaderboard, except the top player is sitting right next to you, and you know it could have been you."
 
-    b "Hm. Sounds nice."
+    # CUT
+    # "I don't ask him what a leaderboard is, but I think I understand."
+    $ unlocked_private_grades = True
 
-    ### %% T: maybe not announce grades publicly? %%
+    $ unlocked_circumstances = True
+
+    return
+
+    ## %% They talk about other classmates doing better or worse, and their own circumstances: 180 %%
+label circumstances:
+
+    $ talked_about_circumstances = True
+
+    t "Depending on circumstances and affinities, people may fare differently at exams."
+
+    b "But I didn't have any particular issues, so I have no excuses not to perform like Jordan."
+
+    t "I think he exercises a lot."
+
+    b "I also do! I do all the homework. But since I just missed a few points, I don't see what more I could revise."
+
+    # t "That's great too. Many pupils can't get what they miss."
+    t "Quickly understanding and fixing one's shortcomings is a strength."
+
+    window hide
+
+    pause 1.0
+
+    window show
+
+    b "Fine, I get it. But why should I put extra work to recover two points, while Jordan just plays it cool?"
+
+    b "Plus, I don't like getting sandwiched like that."
+
+    $ sandwiched_menu_text = "Sandwiched?"
+
+    menu:
+
+        "[sandwiched_menu_text]":
+
+            call sandwich
+
+        "Jordan may also be stressed.":
+
+            pass
+
+    call circumstances_end
+
+    return
+
+label sandwich:
+
+    t "[sandwiched_menu_text]"
+
+    b "Ranking second means annoyance because you couldn't beat the first, whereas the third—and everyone else below—are upset about you because you beat them and still complain."
+
+    return
+
+label circumstances_end:
+
+    t "Actually, Jordan may also be stressed. If not in history, he may be working extra for mathematics, or even sports."
+
+    b "He still parties a lot, doesn't he?"
+
+    t "I couldn't say, but I know that pressured students do that to relieve stress."
+
+    # t "In fact, if you don't feel the need to do so, you may already be handling things pretty well."
+    $ unlocked_elitism = True
+
+    $ unlocked_why_study = True
+
+    return
+
+    ## %% They talk about private grades: 40 %%
 label private_grades:
 
-    t "What about not announcing grades publicly, so you don't compare yourself to others?"
+    $ talked_about_private_grades = True
 
-    b "I see, that would allow me to focus on my own work… Although it would feel like hiding the truth to make me feel better."
+    t "[private_grades_menu_text] So pupils don't compare themselves to others?"
+
+    b "Right, that would allow me to focus on my own work… although it feels a bit like hiding the truth to make me feel better."
 
     t "You're hard on yourself!"
 
-    ## %% They talk about working hard to survive vs chill work in a room, battlefield vs playground, education and tests vs actual work to produce something: 150 %%
-    ### %% T: Why this elitism? %%
-    # - B: I dunnow
-    # - T: would by chance father Vietnamese? I had similar experience and understand the need to succeed, your parents are well integrated and have money, so no need anymore for your generation
-    # - B: but then I’m not up to the task and I don’t deserve that wealth
-    # - B: since no physical hard work, desk work and studies replace it. Like service employees in companies.
-    # - B: It is our battlefield. A way to prove they'd been as good and hardworking as other people on the field.
-    # - T: see it like a playground. The pupils are well-surrounded so they should see this as a training, esp. before more serious exams.
-    # - The pupil considers.
-    ## %% They talk about self-satisfaction and using true skills to actually produce something in life and how finding this extra-curricular activity until having an actual job matters: 80 %%
-    ### %% T: what do you wanna do in life? %%
-    #### %% B: (nice if player choice, but then player controls everyone) %%
-        #### %% video making %%
+    $ unlocked_elitism = True
 
-        #### %% website %%
+    $ unlocked_why_study = True
 
-        #### %% model %%
+    return
 
-        #### %% dance choreography %%
+    ## %% They talk about working hard to survive vs studying: 150 %%
+label elitism:
 
-    ## %% They talk about rivalry and other classmates doing better, or worse, and their own circumstances, serious training and pressure: 120 %%
-    ### %% Teacher choice: Not everyone can get grades that good, you should consider yourself lucky. It annoys other pupils that you're so unsatisfied. %%
-    ### %% B: and so what? It's not like they care that much. They have been used to mediocrity for a long time. Plus it's not like they work as seriously as I do. It's normal I have more expectations. %%
-    ### %% Teacher choice: Is it because other pupils did better? %%
-    ### %% Boy: yes, but it’s more that they proved that it was possible for a human to do so, raising the ceiling %%
-    ### %% T: every human has circumstances %%
-    #### %% B: but no particular handicap or difficulty, or difficult context at home %%
-    ### %% T: and training %%
-    #### %% B: I do all the exercices %%
-    #### %% T: and more? %%
-    #### %% B: no, never more %%
-    #### %% T: try it %%
-    #### %% B: oh… but what if my rival doesn’t, then I must work harder than them that’s unfair %%
-    #### %% T: hm… maybe other pupils think the same of you. we don’t know if rival doesn’t also do extra work %%
-    #### %% B: hmpf, they don’t look pressured or anything. Plus some rival always parties. %%
-    #### %% T: nor do you, always talking about games. It may not be visible to the eyes. Maybe they party precisely to evacuate that stress %%
+    $ talked_about_elitism = True
+
+    t "[elitism_menu_text]"
+
+    b "Not everything. Just in what I'm decent at."
+
+    t "Are your parents pushing you that hard?"
+
+    b "No, it's me. My father appreciates it when I get good grades though."
+
+    t "Does he come from Vietnam? From war times?"
+
+    b "Yes, why?"
+
+    t "He must find it critical that you succeed in academics to attain a brighter future—and make a lot of money."
+
+    t "But your generation lives in peace and is already well integrated in society. You don't need to strain yourself like this."
+
+    b "…"
+
+    window hide
+
+    pause 1.0
+
+    window show
+
+    b "But I want to deserve my current wealth. If I don't work in an office, studying is the second best thing I can do."
+
+    t "Actually, in offices, employees have no grades, their actual performance and teamwork matter more."
+
+    b "Hm… Sounds more relaxing than my father described it to be."
+
+    $ unlocked_hobbies = True
+
+    $ unlocked_dialogue_end = True
+
+    return
+
+    ## %% They talk about the real value of knowledge skills, applied outside school: 100 %%
+label why_study:
+
+    $ talked_about_why_study = True
+
+    t "[why_study_menu_text]"
+
+    b "Well, that's what school is for… To pass exams and prove that we're worthy of a higher status, later in life."
+
+    t "Then, what do you want to do in life?"
+
+    window hide
+
+    pause 0.5
+
+    window show
+
+    b "No clue. Maybe a job in human sciences or something…"
+
+    t "Well, it's more important for a professional to have a deep understanding of a topic than to pass a specific test, so you should aim for that instead."
+
+    t "That is something you cultivate over time, and not just at school."
+
+    b "Great. More homework."
+
+    $ unlocked_hobbies = True
+
+    $ unlocked_dialogue_end = True
+
+    return
+
+label hobbies:
+
+    $ talked_about_hobbies = True
+
+    t "[hobbies_menu_text]"
+
+    b "I've been dabbling in video editing lately."
+
+    t "And what makes you satisfied with it?"
+
+    b "Creating a good video that I'm proud to show to others."
+
+    t "So you're able to assess the quality of your own work without people giving you grades."
+
+    b "Sounds like a good principle. Maybe I'll get to grade my own work one day?"
+
+    t "Haha! I'll mention it to the education officer."
+
+    $ unlocked_dialogue_end = True
+
+    return
+
     ## %% The conversation ends, the teacher understanding better and pupil considering the teacher’s words: 50 %%
+label dialogue_end:
+
+    t "Good. [dialogue_end_menu_text]"
+
+    "Returning to my seat, I glance once more at Đạt. He takes his essay and looks at it, this time with a bitter smile."
+
+    window hide
+
+    pause 1.0
+
     ## %% Epilogue: 50 %%
-    ### %% the boy is now is high school working on some personal project (what they said they liked answering T question) %%
-    ### %% B is happy to be part of a complementary team and using unique skills %%
-    ### %% B is happy to deliver a product only whose subjective quality (but assessed by an audience of young people like him) matters %%
+label epilogue:
+
+    scene bg white_yellowish with dissolve
+
+    pause 1.0
+
+    show text "Epilogue - 7 years later" at center with dissolve
+
+    pause 2.0
+
+    hide text with dissolve
+
+    window show
+
+    "As the documentary of the boat people ends, I recognise Đạt's name in the credits."
+
+    "I check his profile on LinkedIn and confirm it's him."
+
+    "He must be happier now. No grades, just the satisfaction of making something meaningful for society."
+
+    window hide
+
+    stop music fadeout 2.0
+
+    pause 2.0
+
+    window show
+
+    "Oh, the film has an 85\% Rotten Tomatoes score. {p=2.0}That's excellent!"
+
+    window hide
+
+    pause 2.0
+
+    return
+

@@ -12,13 +12,16 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("o2a2_2024_unsatisfied")
+define config.name = _("Unsatisfied")
 
 
 ## Determines if the title given above is shown on the main menu screen. Set
 ## this to False to hide the title.
 
-define gui.show_name = True
+define gui.show_name = False
+
+# Custom flag to allow us to print version number near title logo integrated in BG, but not title
+define gui.show_version = True
 
 
 ## The version of the game.
@@ -35,37 +38,33 @@ It is distributed exclusively on itch.io:
 
 - {a=https://komehara.itch.io/unsatisfied}game page{/a}
 
-- {a=TODO}jam entry page{/a} (link TODO)
+- {a=https://itch.io/jam/o2a2-2024/rate/2814962}jam entry page{/a}
 
-A junior high school student got a pretty good grade, but he doesn’t like it. It happened before and so far, the teachers ignored him, but the new teacher starts a discussion to try to understand what’s wrong and searches the right words to put his mind to peace.
-
-This game was made for the {a=https://itch.io/jam/o2a2-2024}O2A2 VN Jam 2024{/a}, a micro Visual Novel jam with strict asset limitations and a 1000 word limit. See the {a=TODO}jam entry page{/a} (link TODO).
-
-{b}Development status{/b}
-
-{b}Game is currently in active development for the O2A2 VN Jam 2024{/b}
-
-Changelog
-
-{b}v1.0.0 - 2024-07-??**
-
-- Initial release (Ren'Py 8.2.3)
+- {a=https://github.com/hsandt/o2a2-2024-unsatisfied}GitHub repository{/a}
 
 {b}Credits{/b}
 
 - {a=https://komehara.itch.io/}komehara{/a} - Writing, Programming, Management
 
-- reiwa - Art
-- Acrid - Music
+- {a=https://polegacy.itch.io/}Polegacy{/a} - Art
+
+- {a=https://acridbrimistic.itch.io/}Acrid{/a} - Music
+
 - Proofreading & Feedback: zani, The Sloth
 
 {b}License{/b}
 
 Unless otherwise stated, all assets are under copyright of their respective authors.
 
+Free assets used
+
+- {a=https://freesound.org/people/empraetorius/sounds/201256/}Paper Crumple by empraetorius{/a} -- License: Attribution 4.0 (cut at 2.702s)
+
 Fonts
 
-- ...
+- Title font: {a=https://fonts.google.com/specimen/Coming+Soon}Coming Soon{/a} by Open Window, licensed under the {a=http://www.apache.org/licenses/LICENSE-2.0}Apache License, Version 2.0{/a}
+
+- Common font: {a=https://fonts.google.com/specimen/Playpen+Sans}Playpen Sans{/a} by TypeTogether, Laura Meseguer, Veronika Burian, José Scaglione, licensed under the {a=https://openfontlicense.org/open-font-license-official-text/}Open Font License{/a}.
 """)
 
 
@@ -98,7 +97,7 @@ define config.has_voice = True
 ## the player is at the main menu. This file will continue playing into the
 ## game, until it is stopped or another file is played.
 
-# define config.main_menu_music = "main-menu-theme.ogg"
+define config.main_menu_music = "<loop 1.365 to 72.274>audio/bgm/unsatisfied_theme_intro-loop.opus"
 
 
 ## Transitions #################################################################
@@ -125,7 +124,10 @@ define config.after_load_transition = None
 
 ## Used when entering the main menu after the game has ended.
 
-define config.end_game_transition = None
+define config.end_game_transition = Fade(0.5, 1.0, 1.0, color='#ffffef')
+
+# CUSTOM: same for splash -> main menu
+define config.end_splash_transition = Fade(0.5, 0.0, 0.5, color='#ffffef')
 
 
 ## A variable to set the transition used when the game starts does not exist.
