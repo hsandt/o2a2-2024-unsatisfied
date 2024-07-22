@@ -104,35 +104,35 @@ label question_grading:
 
             "[alternative_grading_menu_text]" if not talked_about_alternative_grading and not talked_about_other_classmates_better:
 
-                call alternative_grading
+                call alternative_grading from _call_alternative_grading
 
             "[other_classmates_better_menu_text]" if not talked_about_other_classmates_better:
 
-                call other_classmates_better
+                call other_classmates_better from _call_other_classmates_better
 
             "Everyone has different circumstances and affinities." if unlocked_circumstances and not talked_about_circumstances and not talked_about_private_grades:
 
-                call circumstances
+                call circumstances from _call_circumstances
 
             "[private_grades_menu_text]" if not talked_about_private_grades and unlocked_private_grades and not talked_about_circumstances:
 
-                call private_grades
+                call private_grades from _call_private_grades
 
             "[elitism_menu_text]" if not talked_about_elitism and unlocked_elitism and not talked_about_why_study:
 
-                call elitism
+                call elitism from _call_elitism
 
             "[why_study_menu_text]" if not talked_about_why_study and unlocked_why_study and not talked_about_elitism:
 
-                call why_study
+                call why_study from _call_why_study
 
             "[hobbies_menu_text]" if not talked_about_hobbies and unlocked_hobbies:
 
-                call hobbies
+                call hobbies from _call_hobbies
 
             "[help_others_menu_text]" if not talked_about_help_others and unlocked_help_others:
 
-                call help_others
+                call help_others from _call_help_others
 
             "[dialogue_end_menu_text] (End conversation)" if unlocked_dialogue_end:
 
@@ -202,13 +202,13 @@ label circumstances:
 
         "[sandwiched_menu_text]":
 
-            call sandwich
+            call sandwich from _call_sandwich
 
         "Jordan may also be stressed.":
 
             pass
 
-    call circumstances_end
+    call circumstances_end from _call_circumstances_end
 
     return
 
