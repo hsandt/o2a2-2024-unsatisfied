@@ -70,7 +70,7 @@ label dialogue_start:
 
 label good_job:
 
-    t "That was a good one, especially the part on the Third World and the Non-Aligned Movement."
+    t "Good job! I liked the part on the Third World's Non-Aligned Movement."
 
     "Đạt raises his eyes to look at me, but my compliment only makes him grimace."
 
@@ -88,7 +88,7 @@ label why_crumple:
 
 label flip_pages:
 
-    "He flips the pages to reveal a few paragraphs circled in red."
+    "He flips the pages to reveal sentences circled in red."
 
     t "Yes, the dates were not really accurate, but what matters is that you got the big picture."
 
@@ -208,7 +208,7 @@ label circumstances:
     b "I also do! I do all the homework. But since I just missed a few points, I don't see what more I could revise."
 
     # t "That's great too. Many pupils can't get what they miss."
-    t "Quickly understanding and fixing one's shortcomings is a strength."
+    t "Quickly understanding and fixing one's shortcomings is a strength too."
 
     window hide
 
@@ -216,7 +216,7 @@ label circumstances:
 
     window show
 
-    b "Fine, I get it. But why should I put extra work to recover two points, while Jordan just plays it cool?"
+    b "Fine, but it's still annoying to see Jordan do better and play it cool."
 
     b "Plus, I don't like getting sandwiched like that."
 
@@ -305,11 +305,11 @@ label elitism:
 
     window show
 
-    b "But I want to deserve my current wealth. If I don't work in an office, studying is the second best thing I can do."
+    b "But I want to deserve my wealth. Studying is like a substitute for office work."
 
     t "Actually, in offices, employees have no grades, their actual performance and teamwork matter more."
 
-    b "Hm… Sounds more relaxing than my father described it to be."
+    b "Hm… Sounds more relaxing than school."
 
     $ unlocked_hobbies = True
 
@@ -334,9 +334,9 @@ label why_study:
 
     window show
 
-    b "No clue. Maybe a job in human sciences or something…"
+    b "No clue. Maybe a job in human sciences…"
 
-    t "Well, it's more important for a professional to have a deep understanding of a topic than to pass a specific test, so you should aim for that instead."
+    t "Well, it's more important for a professional to have a deep understanding of a topic than to pass a specific test."
 
     t "That is something you cultivate over time, and not just at school."
 
@@ -361,9 +361,9 @@ label hobbies:
 
     b "Creating a good video that I'm proud to show to others."
 
-    t "So you're able to assess the quality of your own work without people giving you grades."
+    t "So you're able to assess the quality of your own work."
 
-    b "Sounds like a good principle. Maybe I'll get to grade my own work one day?"
+    b "I guess so. Maybe I'll get to grade my own work one day?"
 
     t "Haha! I'll mention it to the education officer."
 
@@ -378,9 +378,9 @@ label help_others:
 
     t "[help_others_menu_text]"
 
-    b "… I do help them when they ask me."
+    b "… I do when they ask me."
 
-    t "But even more proactively! You're closer to them, you may be able to explain things to them in a way I cannot."
+    t "Good then. You should also come to our afternoon support sessions. You're closer to them, you may be able to explain things in a way I cannot."
 
     b "… That wouldn't fix my grade though."
 
