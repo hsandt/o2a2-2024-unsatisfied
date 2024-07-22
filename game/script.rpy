@@ -51,6 +51,9 @@ default talked_about_why_study = False
 default unlocked_hobbies = False
 default talked_about_hobbies = False
 
+default unlocked_help_others = False
+default talked_about_help_others = False
+
 default unlocked_dialogue_end = False
 
 # unused

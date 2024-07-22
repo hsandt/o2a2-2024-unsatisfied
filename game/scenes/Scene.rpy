@@ -58,37 +58,13 @@ label boy_crumples_paper:
     ## %% Teacher starts talking about the optimistic and pessimistic view on grades: 150 %%
 label dialogue_start:
 
-    menu:
-
-        "Compliment him on his writing.":
-
-            jump good_job
-
-        "Ask him why he crumpled the paper.":
-
-            jump why_crumple
-
-label good_job:
-
-    t "That was a good one, especially the part on the Third World and the Non-Aligned Movement."
+    t "Why did you crumple your essay? It was very good, especially the part on the Non-Aligned Movement."
 
     "Đạt raises his eyes to look at me, but my compliment only makes him grimace."
 
     b "If it was only about that…"
 
-    jump flip_pages
-
-label why_crumple:
-
-    t "Why did you crumple your essay? It was very good."
-
-    b "Not good enough, apparently."
-
-    jump flip_pages
-
-label flip_pages:
-
-    "He flips the pages to reveal a few paragraphs circled in red."
+    "He flips the pages to reveal sentences circled in red."
 
     t "Yes, the dates were not really accurate, but what matters is that you got the big picture."
 
@@ -118,6 +94,8 @@ label question_grading:
 
     $ hobbies_menu_text = "Do you have some hobbies?"
 
+    $ help_others_menu_text = "What about helping other pupils?"
+
     $ dialogue_end_menu_text = "Let's resume the class."
 
     while True:
@@ -126,33 +104,37 @@ label question_grading:
 
             "[alternative_grading_menu_text]" if not talked_about_alternative_grading and not talked_about_other_classmates_better:
 
-                call alternative_grading
+                call alternative_grading from _call_alternative_grading
 
             "[other_classmates_better_menu_text]" if not talked_about_other_classmates_better:
 
-                call other_classmates_better
+                call other_classmates_better from _call_other_classmates_better
 
             "Everyone has different circumstances and affinities." if unlocked_circumstances and not talked_about_circumstances and not talked_about_private_grades:
 
-                call circumstances
+                call circumstances from _call_circumstances
 
             "[private_grades_menu_text]" if not talked_about_private_grades and unlocked_private_grades and not talked_about_circumstances:
 
-                call private_grades
+                call private_grades from _call_private_grades
 
             "[elitism_menu_text]" if not talked_about_elitism and unlocked_elitism and not talked_about_why_study:
 
-                call elitism
+                call elitism from _call_elitism
 
             "[why_study_menu_text]" if not talked_about_why_study and unlocked_why_study and not talked_about_elitism:
 
-                call why_study
+                call why_study from _call_why_study
 
             "[hobbies_menu_text]" if not talked_about_hobbies and unlocked_hobbies:
 
-                call hobbies
+                call hobbies from _call_hobbies
 
-            "[dialogue_end_menu_text] (end conversation)" if unlocked_dialogue_end:
+            "[help_others_menu_text]" if not talked_about_help_others and unlocked_help_others:
+
+                call help_others from _call_help_others
+
+            "[dialogue_end_menu_text] (End conversation)" if unlocked_dialogue_end:
 
                 jump dialogue_end
 
@@ -202,7 +184,7 @@ label circumstances:
     b "I also do! I do all the homework. But since I just missed a few points, I don't see what more I could revise."
 
     # t "That's great too. Many pupils can't get what they miss."
-    t "Quickly understanding and fixing one's shortcomings is a strength."
+    t "Quickly understanding and fixing one's shortcomings is a strength too."
 
     window hide
 
@@ -210,7 +192,7 @@ label circumstances:
 
     window show
 
-    b "Fine, I get it. But why should I put extra work to recover two points, while Jordan just plays it cool?"
+    b "Fine, but it's still annoying to see Jordan do better and play it cool."
 
     b "Plus, I don't like getting sandwiched like that."
 
@@ -220,13 +202,13 @@ label circumstances:
 
         "[sandwiched_menu_text]":
 
-            call sandwich
+            call sandwich from _call_sandwich
 
         "Jordan may also be stressed.":
 
             pass
 
-    call circumstances_end
+    call circumstances_end from _call_circumstances_end
 
     return
 
@@ -299,19 +281,19 @@ label elitism:
 
     window show
 
-    b "But I want to deserve my current wealth. If I don't work in an office, studying is the second best thing I can do."
+    b "But I want to deserve my wealth. Studying is like a substitute for office work."
 
     t "Actually, in offices, employees have no grades, their actual performance and teamwork matter more."
 
-    b "Hm… Sounds more relaxing than my father described it to be."
+    b "Hm… Sounds more relaxing than school."
 
     $ unlocked_hobbies = True
 
-    $ unlocked_dialogue_end = True
+    $ unlocked_help_others = True
 
     return
 
-    ## %% They talk about the real value of knowledge skills, applied outside school: 100 %%
+    ## %% Why study? %%
 label why_study:
 
     $ talked_about_why_study = True
@@ -328,9 +310,9 @@ label why_study:
 
     window show
 
-    b "No clue. Maybe a job in human sciences or something…"
+    b "No clue. Maybe a job in human sciences…"
 
-    t "Well, it's more important for a professional to have a deep understanding of a topic than to pass a specific test, so you should aim for that instead."
+    t "Well, it's more important for a professional to have a deep understanding of a topic than to pass a specific test."
 
     t "That is something you cultivate over time, and not just at school."
 
@@ -338,10 +320,11 @@ label why_study:
 
     $ unlocked_hobbies = True
 
-    $ unlocked_dialogue_end = True
+    $ unlocked_help_others = True
 
     return
 
+    ## %% Hobbies? %%
 label hobbies:
 
     $ talked_about_hobbies = True
@@ -354,11 +337,32 @@ label hobbies:
 
     b "Creating a good video that I'm proud to show to others."
 
-    t "So you're able to assess the quality of your own work without people giving you grades."
+    t "So you're able to assess the quality of your own work."
 
-    b "Sounds like a good principle. Maybe I'll get to grade my own work one day?"
+    b "I guess so. Maybe I'll get to grade my own work one day?"
 
     t "Haha! I'll mention it to the education officer."
+
+    $ unlocked_dialogue_end = True
+
+    return
+
+    ## %% Help others? %%
+label help_others:
+
+    $ talked_about_help_others = True
+
+    t "[help_others_menu_text]"
+
+    b "… I do when they ask me."
+
+    t "Good then. You should also come to our afternoon support sessions. You're closer to them, you may be able to explain things in a way I cannot."
+
+    b "… That wouldn't fix my grade though."
+
+    t "As a teacher, I can tell you that helping others improve may be just as rewarding. Re-explaining a concept to others may also help you grasp it better."
+
+    b "Okay… I'll consider it."
 
     $ unlocked_dialogue_end = True
 
