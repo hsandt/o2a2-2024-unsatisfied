@@ -58,35 +58,11 @@ label boy_crumples_paper:
     ## %% Teacher starts talking about the optimistic and pessimistic view on grades: 150 %%
 label dialogue_start:
 
-    menu:
-
-        "Compliment him on his writing.":
-
-            jump good_job
-
-        "Ask him why he crumpled the paper.":
-
-            jump why_crumple
-
-label good_job:
-
-    t "Good job! I liked the part on the Third World's Non-Aligned Movement."
+    t "Why did you crumple your essay? It was very good, especially the part on the Non-Aligned Movement."
 
     "Đạt raises his eyes to look at me, but my compliment only makes him grimace."
 
     b "If it was only about that…"
-
-    jump flip_pages
-
-label why_crumple:
-
-    t "Why did you crumple your essay? It was very good."
-
-    b "Not good enough, apparently."
-
-    jump flip_pages
-
-label flip_pages:
 
     "He flips the pages to reveal sentences circled in red."
 
@@ -158,7 +134,7 @@ label question_grading:
 
                 call help_others
 
-            "[dialogue_end_menu_text] (end conversation)" if unlocked_dialogue_end:
+            "[dialogue_end_menu_text] (End conversation)" if unlocked_dialogue_end:
 
                 jump dialogue_end
 
