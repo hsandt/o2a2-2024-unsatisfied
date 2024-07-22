@@ -118,6 +118,8 @@ label question_grading:
 
     $ hobbies_menu_text = "Do you have some hobbies?"
 
+    $ help_others_menu_text = "What about helping other pupils?"
+
     $ dialogue_end_menu_text = "Let's resume the class."
 
     while True:
@@ -151,6 +153,10 @@ label question_grading:
             "[hobbies_menu_text]" if not talked_about_hobbies and unlocked_hobbies:
 
                 call hobbies
+
+            "[help_others_menu_text]" if not talked_about_help_others and unlocked_help_others:
+
+                call help_others
 
             "[dialogue_end_menu_text] (end conversation)" if unlocked_dialogue_end:
 
@@ -307,11 +313,11 @@ label elitism:
 
     $ unlocked_hobbies = True
 
-    $ unlocked_dialogue_end = True
+    $ unlocked_help_others = True
 
     return
 
-    ## %% They talk about the real value of knowledge skills, applied outside school: 100 %%
+    ## %% Why study? %%
 label why_study:
 
     $ talked_about_why_study = True
@@ -338,10 +344,11 @@ label why_study:
 
     $ unlocked_hobbies = True
 
-    $ unlocked_dialogue_end = True
+    $ unlocked_help_others = True
 
     return
 
+    ## %% Hobbies? %%
 label hobbies:
 
     $ talked_about_hobbies = True
@@ -359,6 +366,27 @@ label hobbies:
     b "Sounds like a good principle. Maybe I'll get to grade my own work one day?"
 
     t "Haha! I'll mention it to the education officer."
+
+    $ unlocked_dialogue_end = True
+
+    return
+
+    ## %% Help others? %%
+label help_others:
+
+    $ talked_about_help_others = True
+
+    t "[help_others_menu_text]"
+
+    b "… I do help them when they ask me."
+
+    t "But even more proactively! You're closer to them, you may be able to explain things to them in a way I cannot."
+
+    b "… That wouldn't fix my grade though."
+
+    t "As a teacher, I can tell you that helping others improve may be just as rewarding. Re-explaining a concept to others may also help you grasp it better."
+
+    b "Okay… I'll consider it."
 
     $ unlocked_dialogue_end = True
 
